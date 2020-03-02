@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/mainmenu_login"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_margin="10dp"
@@ -34,6 +35,16 @@
             android:layout_gravity="center"
             android:textAllCaps="false">
         </Button>
+        <Button
+            android:id="@+id/registration_pg_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regisztráció"
+            android:textAllCaps="false"
+            android:layout_gravity="center"/>
     </LinearLayout>
+    <include layout="@layout/user_registration"
+        android:id="@+id/registration_layout"
+        android:visibility="gone"/>
 
 </RelativeLayout>

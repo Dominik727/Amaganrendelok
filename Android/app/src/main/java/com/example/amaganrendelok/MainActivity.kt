@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
                 && passwd_et.text.toString().equals("test")
             ) "Bejelentkezés sikeres" else "Bejelentkezés sikertelen"
             Toast.makeText(this, status, Toast.LENGTH_SHORT).show()
+        }
+        registration_pg_btn.setOnClickListener {
+            ShowRegistration()
         }
     }
 
@@ -36,5 +40,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showInfo(){
 
+    }
+
+    private fun ShowRegistration() {
+        mainmenu_login.visibility= View.GONE
+        registration_layout.visibility=View.VISIBLE
     }
 }
