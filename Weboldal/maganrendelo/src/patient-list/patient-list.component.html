@@ -1,0 +1,22 @@
+<table class="table table-dark table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vezetéknév</th>
+      <th scope="col">Keresztnév</th>
+      <th scope="col">Email</th>
+      <th scope="col">Tel</th>
+      <th scope="col">TAJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.lastname }}</td>
+      <td>{{ patient.firstname }}</td>
+      <td>{{ patient.email }}</td>
+      <td>{{ patient.tel }}</td>
+      <td>{{ patient.taj }}</td>
+    </tr>
+  </tbody>
+</table>
