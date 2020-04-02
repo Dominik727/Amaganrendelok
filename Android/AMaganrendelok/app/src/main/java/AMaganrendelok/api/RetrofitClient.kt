@@ -8,7 +8,7 @@ object RetrofitClient {
 
     //private val AUTH = "Basic "+ Base64.encodeToString("test:test".toByteArray(), Base64.NO_WRAP)
 
-    private const val BASE_URL = "http://192.168.43.207/myapi/public/"
+    private const val BASE_URL = "http://maganrendelo.herokuapp.com/"
 
     private val okHttpClient = OkHttpClient.Builder()
             .addInterceptor { chain ->

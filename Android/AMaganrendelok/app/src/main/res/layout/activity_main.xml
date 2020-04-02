@@ -28,12 +28,48 @@
         android:padding="10dp">
 
         <EditText
+            android:id="@+id/editTextLastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="5dp"
+            android:hint="Vezetéknév"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextFirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="5dp"
+            android:hint="Keresztnév"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-            android:hint="e-mail"
+            android:hint="E-mail"
             android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextTel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="5dp"
+            android:hint="Telefonszám"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editTextTAJ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:drawablePadding="5dp"
+            android:hint="TAJ"
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -43,15 +79,6 @@
             android:drawablePadding="5dp"
             android:hint="Jelszó"
             android:inputType="textPassword" />
-
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:drawablePadding="5dp"
-            android:hint="Név"
-            android:inputType="textPersonName" />
 
     </LinearLayout>
 

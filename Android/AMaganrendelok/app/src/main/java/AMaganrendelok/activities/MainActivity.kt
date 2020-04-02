@@ -28,8 +28,10 @@ class MainActivity : AppCompatActivity() {
 
             val email = editTextEmail.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
-            val name = editTextName.text.toString().trim()
-            val TAJ = editTextName.text.toString().trim()
+            val firstname = editTextFirstname.text.toString().trim()
+            val lastname = editTextLastname.text.toString().trim()
+            val tel = editTextTel.text.toString().trim()
+            val TAJ = editTextTAJ.text.toString().trim()
 
 
             if(email.isEmpty()){
@@ -45,20 +47,32 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(name.isEmpty()){
-                editTextName.error = "Név megadása kötelező"
-                editTextName.requestFocus()
+            if(firstname.isEmpty()){
+                editTextFirstname.error = "Keresztnév megadása kötelező"
+                editTextFirstname.requestFocus()
+                return@setOnClickListener
+            }
+
+            if(tel.isEmpty()){
+                editTextFirstname.error = "Keresztnév megadása kötelező"
+                editTextFirstname.requestFocus()
+                return@setOnClickListener
+            }
+
+            if(lastname.isEmpty()){
+                editTextLastname.error = "Vezetéknév megadása kötelező"
+                editTextLastname.requestFocus()
                 return@setOnClickListener
             }
 
             if(TAJ.isEmpty()){
-                editTextName.error = "TAJ megadása kötelező"
-                editTextName.requestFocus()
+                editTextTAJ.error = "TAJ megadása kötelező"
+                editTextTAJ.requestFocus()
                 return@setOnClickListener
             }
 
 
-            RetrofitClient.instance.createUser(email, name, password, TAJ)
+            RetrofitClient.instance.createUser(firstname, lastname, tel,  email, password, TAJ)
                     .enqueue(object: Callback<DefaultResponse>{
                         override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
