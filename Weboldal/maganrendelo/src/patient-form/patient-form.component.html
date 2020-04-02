@@ -1,0 +1,63 @@
+<div class="card my-5" style="background-color:rgb(53, 58, 64);">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
+        <div class="form-group">
+            <label style="color: honeydew;" for="lastname">Vezetéknév</label>
+            <input type="text" [(ngModel)]="patient.lastname" 
+              class="form-control"
+              id="lastname"
+              name="lastname"
+              placeholder="Vezetéknév"
+              required #lastname="ngModel">
+        </div>
+        <div class="form-group">
+          <label style="color: honeydew;" for="firstname">Keresztnév</label>
+          <input type="text" [(ngModel)]="patient.firstname" 
+            class="form-control"
+            id="firstname"
+            name="firstname"
+            placeholder="Keresztnév"
+            required #firstname="ngModel">
+        </div>
+        <div class="form-group">
+            <label style="color: honeydew;" for="email">Email</label>
+            <input type="text" [(ngModel)]="patient.email" 
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required #email="ngModel">
+        </div>
+        <div class="form-group">
+            <label style="color: honeydew;" for="tel">Telefon</label>
+            <input type="text" [(ngModel)]="patient.tel" 
+              class="form-control"
+              id="tel"
+              name="tel"
+              placeholder="Tel"
+              required #tel="ngModel">
+        </div>
+        <div class="form-group">
+          <label style="color: honeydew;" for="taj">TAJ</label>
+          <input type="text" [(ngModel)]="patient.taj" 
+            class="form-control"
+            id="taj"
+            name="taj"
+            placeholder="TAJ"
+            required #taj="ngModel">
+        </div>
+        <div class="form-group">
+          <label style="color: honeydew;" for="pass">Jelszó</label>
+          <input type="text" [(ngModel)]="patient.pass" 
+            class="form-control"
+            id="pass"
+            name="pass"
+            type="password"
+            placeholder="Jelszó"
+            required #pass="ngModel">
+        </div>
+        <button type="submit" [disabled]="!patientForm.form.valid" 
+          class="btn btn-info">Küldés</button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+.navbar-dark .navbar-brand {
+    color: orange;
+}
+
+.btn-outline-success {
+    color: orange;
+    border-color: orange;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: orange;
+    border-color: orange;
+}
+
