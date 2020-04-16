@@ -4,11 +4,13 @@ import { PatientService } from '../service/patient.service';
 import { Patient } from '../model/patient';
 
 @Component({
-  selector: 'app-patient-form',
-  templateUrl: './patient-form.component.html',
-  styleUrls: ['./patient-form.component.css']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
-export class PatientFormComponent {
+export class LoginFormComponent implements OnInit {
+
+  
 
   patient: Patient;
 
@@ -22,6 +24,8 @@ export class PatientFormComponent {
 
   gotoUserList() {
     this.router.navigate(['/patients']);
+  }
+  ngOnInit(): void {
   }
 
 }

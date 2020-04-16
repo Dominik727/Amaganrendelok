@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { PatientListComponent } from '../patient-list/patient-list.component';
-import { PatientFormComponent } from '../patient-form/patient-form.component';
-import { PatientService } from '../service/patient.service';
-import { LoginFormComponent } from '../login-form/login-form.component';
-import { CardComponent } from '../card/card.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientFormComponent } from './patient-form/patient-form.component';
+import { PatientService } from './service/patient.service';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { CardComponent } from './card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ClinicListComponent } from './clinic-list/clinic-list.component';
+import { SurgeryListComponent } from './surgery-list/surgery-list.component';
+import { SurgeryDetailComponent } from './surgery-detail/surgery-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ClinicListComponent } from './clinic-list/clinic-list.component';
     LoginFormComponent,
     CardComponent,
     NavbarComponent,
-    ClinicListComponent
+    SurgeryListComponent,
+    SurgeryDetailComponent
   ],
   imports: [
     BrowserModule,

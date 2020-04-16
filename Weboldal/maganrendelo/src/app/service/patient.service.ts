@@ -9,7 +9,7 @@ export class PatientService {
   private patientsUrl: string;
  
   constructor(private http: HttpClient) {
-    this.patientsUrl = 'http://maganrendelo.herokuapp.com/patients';
+    this.patientsUrl = 'http://maganrendelo.herokuapp.com/admin/patients';
   }
  
   public findAll(): Observable<Patient[]> {
