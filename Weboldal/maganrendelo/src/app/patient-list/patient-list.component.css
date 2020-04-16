@@ -1,0 +1,29 @@
+.table th {
+    text-align: center;
+}
+
+.table {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    margin-top: 80px;
+    width: auto;
+ }
+
+ #nav-patients-tab{
+     background-color: rgb(53, 58, 64);
+     color: white;
+ }
+
+ #nav-doctors-tab{
+    background-color: rgb(53, 58, 64);
+    color: white;
+}
+
+#nav-tab{
+    margin: 0 auto;
+    float: none;
+    margin-bottom: -75px;
+    width: 450px;
+    margin-top: 80px;
+}

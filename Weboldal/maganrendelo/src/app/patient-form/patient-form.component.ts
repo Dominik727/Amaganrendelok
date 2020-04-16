@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PatientService } from 'src/service/patient.service';
-import { Patient } from 'src/model/patient';
+import { PatientService } from '../service/patient.service';
+import { Patient } from '../model/patient';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  selector: 'app-patient-form',
+  templateUrl: './patient-form.component.html',
+  styleUrls: ['./patient-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
-
-  
+export class PatientFormComponent {
 
   patient: Patient;
 
@@ -23,9 +21,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   gotoUserList() {
-    this.router.navigate(['/patients']);
-  }
-  ngOnInit(): void {
+    this.router.navigate(['admin/patients']);
   }
 
 }

@@ -1,0 +1,47 @@
+
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+  }
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+
+  .img{
+    max-width: 200px;
+  }
+
+  .image{
+      height: 400px;;
+  }
+
+  .center {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  button{
+    margin-right: 10px;
+  }
+
+  .card{
+      width: 600px;
+      margin-top: 50px;
+  }
