@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">KotlinRetrofitTutorial</string>
+    <string name="app_name">Maganrendelok</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Maganrendelok</string>
+    <string name="nav_header_subtitle">email@email.hu</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Kezdőlap</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_surgery">Rendelők</string>
+    <string name="menu_about">Rólunk</string>
+
+    <string name="home_second">Home Second</string>
 </resources>
