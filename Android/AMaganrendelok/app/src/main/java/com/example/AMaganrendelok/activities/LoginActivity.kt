@@ -1,13 +1,13 @@
 package AMaganrendelok.activities
 
-import AMaganrendelok.R
 import AMaganrendelok.api.RetrofitClient
 import AMaganrendelok.models.LoginResponse
 import AMaganrendelok.storage.SharedPrefManager
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.AMaganrendelok.R
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
