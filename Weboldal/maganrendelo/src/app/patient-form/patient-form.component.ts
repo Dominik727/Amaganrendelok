@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from '../service/patient.service';
-import { Patient } from '../model/patient';
+import { PatientDto } from '../model/patientdto';
 
 @Component({
   selector: 'app-patient-form',
@@ -10,18 +10,18 @@ import { Patient } from '../model/patient';
 })
 export class PatientFormComponent {
 
-  patient: Patient;
+  patient: PatientDto;
 
   constructor(private route: ActivatedRoute, private router: Router, private patientService: PatientService) {
-    this.patient = new Patient();
+    this.patient = new PatientDto();
   }
 
   onSubmit() {
-    this.patientService.save(this.patient).subscribe(result => this.gotoUserList());
+    this.patientService.newPatient(this.patient).subscribe(result => this.gotoUserList());
   }
 
   gotoUserList() {
-    this.router.navigate(['admin/patients']);
+    this.router.navigate(['/home']);
   }
 
 }
