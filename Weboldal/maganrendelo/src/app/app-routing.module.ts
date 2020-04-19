@@ -8,7 +8,7 @@ import { SurgeryDetailComponent } from './surgery-detail/surgery-detail.componen
 
 const routes: Routes = [
   { path: 'admin/usersdata', component: PatientListComponent },
-  { path: 'signup', component: PatientFormComponent },
+  { path: 'registration', component: PatientFormComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'home', component: SurgeryListComponent },
   { path: 'detail/:id', component: SurgeryDetailComponent },
