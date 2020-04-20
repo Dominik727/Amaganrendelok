@@ -1,5 +1,10 @@
 <div class="container">
     <div class="row h-100">
+        <div class="btn-div">
+            <button class="btn btn-primary createSurgery-btn" routerLink="/admin/surgeries/create">+</button>
+        </div>
+    </div>
+    <div class="row">
         <div *ngFor="let surgery of surgeries" class="card mr-auto my-5 mx-4 text-white bg-dark" style="width: 20rem;">
             <a routerLink="/detail/{{surgery.id}}" style="color: white;">
                 <img src="./assets/szent-margit-rendelointezet.jpg" class="card-img-top" alt="...">

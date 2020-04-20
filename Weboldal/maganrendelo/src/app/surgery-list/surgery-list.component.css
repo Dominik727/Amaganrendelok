@@ -1,5 +1,19 @@
-.btn-primary{
-    background-color:darkorange;
-    border-color: orange;
-    color: black;
+.createSurgery-btn{
+    background-color:rgb(53, 58, 64);
+    color: white;
+    margin-top: 40px;
+    border-radius: 15px;
+    border-color: rgb(53, 58, 64);
+    border-width: 2px;
+    font-family: Arial;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 20px;
+    line-height: 0.8;
 }
+
+button:hover {
+    background-color: orange;
+  }
