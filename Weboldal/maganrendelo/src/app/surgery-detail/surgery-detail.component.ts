@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SurgeryService } from '../service/surgery.service';
 import { Surgery } from '../model/surgery';
 import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-surgery-detail',
@@ -15,7 +16,8 @@ export class SurgeryDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private surgeryService: SurgeryService,
-    private location: Location) { }
+    private location: Location,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getSurgery();
@@ -29,6 +31,10 @@ export class SurgeryDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  mapUrl() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.surgery.map);
   }
 
 }

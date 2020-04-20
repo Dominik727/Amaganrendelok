@@ -6,5 +6,6 @@ export class Surgery {
     email: string;
     tel: string;
     info: string;
+    map: string;
     doctrors: [];
 }
