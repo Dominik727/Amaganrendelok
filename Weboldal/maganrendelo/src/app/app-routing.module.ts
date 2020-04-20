@@ -5,6 +5,7 @@ import { PatientFormComponent } from './patient-form/patient-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SurgeryListComponent } from './surgery-list/surgery-list.component';
 import { SurgeryDetailComponent } from './surgery-detail/surgery-detail.component';
+import { CreateSurgeryComponent } from './create-surgery/create-surgery.component';
 
 const routes: Routes = [
   { path: 'admin/usersdata', component: PatientListComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'home', component: SurgeryListComponent },
   { path: 'detail/:id', component: SurgeryDetailComponent },
+  { path: 'admin/surgeries/create', component: CreateSurgeryComponent },
+  { path: 'doctor/:id/patients', component: PatientListComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

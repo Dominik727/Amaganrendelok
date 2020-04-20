@@ -1,0 +1,60 @@
+
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  h5{
+      margin-left: 70px;
+  }
+
+  label{
+      margin-left: 70px;
+  }
+
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: orange;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    margin-left: 70px;
+  }
+  button:hover {
+    background-color: green;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+
+  .img{
+    max-width: 200px;
+  }
+
+  .image{
+      height: 400px;;
+  }
+
+  .center {
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+  }
+
+  button{
+    margin-right: 10px;
+  }
+
+  .card{
+      width: 600px;
+      margin-top: 50px;
+  }
