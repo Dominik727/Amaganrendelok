@@ -2,12 +2,35 @@
     <img class="image" src="./assets/szent-margit-rendelointezet.jpg" alt="...">
     <div class="card-body">
         <h5 class="card-title">{{surgery.name | uppercase}}</h5>
-        <p class="card-text">Nyitvatartás: {{surgery.opening}}</p>
-        <p class="card-text">Cím: {{surgery.address}}</p>
-        <p class="card-text">Tel.: {{surgery.tel}}</p>
-        <p class="card-text">Email: {{surgery.email}}</p>
-        <p class="card-text">Orvosok: Baka Tamás, Vakol Tibor</p>
-        <p class="card-text">info: {{surgery.info}}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+        <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th>Nyitvatartás:</th>
+                <td>{{surgery.opening}}</td>
+              </tr>
+              <tr>
+                <th>Cím:</th>
+                <td>{{surgery.address}}</td>
+              </tr>
+              <tr>
+                <th>Tel.:</th>
+                <td>{{surgery.tel}}</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td>{{surgery.email}}</td>
+              </tr>
+              <tr>
+                <th>Info:</th>
+                <td>{{surgery.info}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        
     </div>
+    <p class="card-text">Térkép:</p>
+    <iframe [src]="mapUrl()" width="auto" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 </div>
