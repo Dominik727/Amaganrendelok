@@ -1,26 +1,26 @@
 package AMaganrendelok.activities
 
-import AMaganrendelok.R
 import AMaganrendelok.api.RetrofitClient
 import AMaganrendelok.models.DefaultResponse
 import AMaganrendelok.storage.SharedPrefManager
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.AMaganrendelok.R
+import kotlinx.android.synthetic.main.fragment_profile.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class fragment_profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragment_profile)
 
         textViewLogin.setOnClickListener {
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            startActivity(Intent(this@fragment_profile, LoginActivity::class.java))
         }
 
 
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
             RetrofitClient.instance.createUser(firstname, lastname, tel,  email, password, TAJ)
                     .enqueue(object: Callback<DefaultResponse>{
-                        override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                        override fun onFailure(call: retrofit2.Call<DefaultResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
