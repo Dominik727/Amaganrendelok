@@ -57,6 +57,15 @@
                 placeholder="Infó"
                 required #info="ngModel">
             </div>
+            <div class="form-group">
+              <label style="color: honeydew;" for="map">Térkép</label>
+              <input type="text" [(ngModel)]="surgery.map" 
+                class="form-control"
+                id="map"
+                name="map"
+                placeholder="Térkép"
+                required #map="ngModel">
+            </div>
             <button type="submit" [disabled]="!surgeryForm.form.valid" 
               class="btn btn-info">Mentés</button>
           </form>          
