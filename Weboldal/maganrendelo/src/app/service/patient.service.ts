@@ -28,6 +28,7 @@ export class PatientService {
 
   public DoctorPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.doctorPatientsUrl)
+  }
 
   public newPatient(patient: PatientDto) {
     return this.http.post<PatientDto>(this.regUrl, patient);
