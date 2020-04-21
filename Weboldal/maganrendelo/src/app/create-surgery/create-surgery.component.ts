@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Surgery } from '../model/surgery';
 import { SurgeryService } from '../service/surgery.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-surgery',
@@ -13,7 +14,8 @@ export class CreateSurgeryComponent implements OnInit {
   surgery: Surgery;
   url: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private surgeryService: SurgeryService) {
+  constructor(private route: ActivatedRoute, private router: Router,
+    private surgeryService: SurgeryService, private location: Location) {
     this.surgery = new Surgery();
   }
 
@@ -26,6 +28,10 @@ export class CreateSurgeryComponent implements OnInit {
 
   gotoHome() {
     this.router.navigate(['/home']);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   

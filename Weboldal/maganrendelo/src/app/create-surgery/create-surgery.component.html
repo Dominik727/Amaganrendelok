@@ -1,4 +1,5 @@
 <div class="card mb-3 center text-white bg-dark">
+  <i class="fa fa-arrow-circle-left" (click)="goBack()"></i>
   <img [src]="url" class="image"> <br />
   <input class="file-btn" type='file' (change)="onSelectFile($event)">
   <div class="card-body">

@@ -68,3 +68,17 @@
     margin-bottom: 40px;
   }
 
+  .btn-info{
+    background-color: #17a2b8;
+  }
+
+  .fa-arrow-circle-left{
+    margin-bottom: 5px;
+    color: orange;
+    font-size:25px;
+    text-align: left;
+  }
+
+  .fa-arrow-circle-left::before{
+      cursor: pointer;
+  }

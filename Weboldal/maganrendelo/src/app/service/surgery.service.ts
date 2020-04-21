@@ -36,6 +36,12 @@ export class SurgeryService {
     );
   }
 
+  updateSurgery (surgery: Surgery): Observable<any> {
+    return this.http.put(this.surgeriesUrl, surgery, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updatePainting'))
+    );
+  }
+
   deleteSurgery (surgery: Surgery | number): Observable<Surgery> {
     const id = typeof surgery === 'number' ? surgery : surgery.id;
     const url = `${this.surgeriesUrl}/${id}`;
