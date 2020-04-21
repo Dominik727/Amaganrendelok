@@ -11,6 +11,7 @@ import { SurgeryService } from '../service/surgery.service';
 export class CreateSurgeryComponent implements OnInit {
 
   surgery: Surgery;
+  url: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private surgeryService: SurgeryService) {
     this.surgery = new Surgery();
@@ -25,6 +26,19 @@ export class CreateSurgeryComponent implements OnInit {
 
   gotoHome() {
     this.router.navigate(['/home']);
+  }
+
+  
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
   }
 
 }

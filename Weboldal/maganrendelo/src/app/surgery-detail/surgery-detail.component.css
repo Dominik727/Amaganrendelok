@@ -7,7 +7,7 @@
   button {
     margin-top: 20px;
     font-family: Arial;
-    background-color: #eee;
+    background-color: rgb(146, 146, 146);
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
@@ -15,7 +15,7 @@
     cursor: hand;
   }
   button:hover {
-    background-color: #cfd8dc;
+    background-color: rgb(114, 114, 114);
   }
   button:disabled {
     background-color: #eee;
@@ -50,5 +50,21 @@
     color: white;
     text-align: left;
     margin-top: 30px;
+  }
+
+  button{
+    margin-right: 10px;
+  }
+
+  .btn-danger{
+    background-color: rgb(223, 0, 0);
+  }
+
+  .btn-danger:hover {
+    background-color: rgb(185, 0, 0);
+  }
+
+  .delete{
+    margin-bottom: 40px;
   }
 

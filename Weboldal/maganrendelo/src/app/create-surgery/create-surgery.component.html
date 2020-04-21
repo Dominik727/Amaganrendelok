@@ -1,73 +1,45 @@
 <div class="card mb-3 center text-white bg-dark">
-    <img class="image" src="./assets/szent-margit-rendelointezet.jpg" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{surgery.name}}</h5>
-        <form (ngSubmit)="onSubmit()" #surgeryForm="ngForm">
-            <div class="form-group">
-                <label style="color: honeydew;" for="name">Név</label>
-                <input type="text" [(ngModel)]="surgery.name" 
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  placeholder="Név"
-                  required #name="ngModel">
-            </div>
-            <div class="form-group">
-              <label style="color: honeydew;" for="opening">Nyitvatartás</label>
-              <input type="text" [(ngModel)]="surgery.opening" 
-                class="form-control"
-                id="opening"
-                name="opening"
-                placeholder="Nyitvatartás"
-                required #opening="ngModel">
-            </div>
-            <div class="form-group">
-                <label style="color: honeydew;" for="address">Cím</label>
-                <input type="text" [(ngModel)]="surgery.address" 
-                  class="form-control"
-                  id="address"
-                  name="address"
-                  placeholder="Cím"
-                  required #address="ngModel">
-            </div>
-            <div class="form-group">
-                <label style="color: honeydew;" for="tel">Telefon</label>
-                <input type="text" [(ngModel)]="surgery.tel" 
-                  class="form-control"
-                  id="tel"
-                  name="tel"
-                  placeholder="Telefon"
-                  required #tel="ngModel">
-            </div>
-            <div class="form-group">
-              <label style="color: honeydew;" for="email">Email</label>
-              <input type="text" [(ngModel)]="surgery.email" 
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required #email="ngModel">
-            </div>
-            <div class="form-group">
-              <label style="color: honeydew;" for="info">Infó</label>
-              <input type="text" [(ngModel)]="surgery.info" 
-                class="form-control"
-                id="info"
-                name="info"
-                placeholder="Infó"
-                required #info="ngModel">
-            </div>
-            <div class="form-group">
-              <label style="color: honeydew;" for="map">Térkép</label>
-              <input type="text" [(ngModel)]="surgery.map" 
-                class="form-control"
-                id="map"
-                name="map"
-                placeholder="Térkép"
-                required #map="ngModel">
-            </div>
-            <button type="submit" [disabled]="!surgeryForm.form.valid" 
-              class="btn btn-info">Mentés</button>
-          </form>          
-    </div>
+  <img [src]="url" class="image"> <br />
+  <input class="file-btn" type='file' (change)="onSelectFile($event)">
+  <div class="card-body">
+    <h5 class="card-title">{{surgery.name | uppercase}}</h5>
+    <form (ngSubmit)="onSubmit()" #surgeryForm="ngForm">
+      <div class="form-group">
+        <label style="color: honeydew;" for="name">Név</label>
+        <input type="text" [(ngModel)]="surgery.name" class="form-control" id="name" name="name" placeholder="Név"
+          required #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="opening">Nyitvatartás</label>
+        <input type="text" [(ngModel)]="surgery.opening" class="form-control" id="opening" name="opening"
+          placeholder="Nyitvatartás" required #opening="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="address">Cím</label>
+        <input type="text" [(ngModel)]="surgery.address" class="form-control" id="address" name="address"
+          placeholder="Cím" required #address="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="tel">Telefon</label>
+        <input type="text" [(ngModel)]="surgery.tel" class="form-control" id="tel" name="tel" placeholder="Telefon"
+          required #tel="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="email">Email</label>
+        <input type="text" [(ngModel)]="surgery.email" class="form-control" id="email" name="email" placeholder="Email"
+          required #email="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="info">Infó</label>
+        <input type="text" [(ngModel)]="surgery.info" class="form-control" id="info" name="info" placeholder="Infó"
+          required #info="ngModel">
+      </div>
+      <div class="form-group">
+        <label style="color: honeydew;" for="map">Térkép</label>
+        <input type="text" [(ngModel)]="surgery.map" class="form-control" id="map" name="map" placeholder="Térkép"
+          required #map="ngModel">
+      </div>
+      <button type="submit" [disabled]="!surgeryForm.form.valid" class="btn btn-info">Mentés</button>
+    </form>
+  </div>
 </div>

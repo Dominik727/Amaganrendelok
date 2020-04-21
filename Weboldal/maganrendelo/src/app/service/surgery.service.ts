@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Surgery } from '../model/surgery';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -16,6 +16,10 @@ export class SurgeryService {
     this.surgeriesUrl = 'http://maganrendelo.herokuapp.com/admin/surgeries';
     this.surgeryUrl = 'http://maganrendelo.herokuapp.com/surgery';
   }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
  
   public findAll(): Observable<Surgery[]> {
     return this.http.get<Surgery[]>(this.surgeriesUrl);
@@ -32,6 +36,15 @@ export class SurgeryService {
     );
   }
 
+  deleteSurgery (surgery: Surgery | number): Observable<Surgery> {
+    const id = typeof surgery === 'number' ? surgery : surgery.id;
+    const url = `${this.surgeriesUrl}/${id}`;
+  
+    return this.http.delete<Surgery>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Surgery>('deleteSurgery'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -40,4 +53,7 @@ export class SurgeryService {
       return of(result as T);
     };
   }
+
+
+  
 }

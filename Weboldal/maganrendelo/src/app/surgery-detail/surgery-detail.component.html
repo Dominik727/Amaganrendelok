@@ -30,7 +30,28 @@
 
         
     </div>
-    <p class="card-text">Térkép:</p>
+    <button class="btn btn-secondary" (click)="goBack()">Vissza</button>
+    <button class="delete btn btn-danger" title="delete surgery" (click)="open(mymodal)">delete</button>
+    <p class="card-text terkep">Térkép:</p>
     <iframe [src]="mapUrl()" width="auto" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 </div>
+
+
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Delete Modal</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to delete this painting?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="delete(surgery)" (click)="modal.close('Close click')">Delete</button>
+  </div>
+</ng-template>
