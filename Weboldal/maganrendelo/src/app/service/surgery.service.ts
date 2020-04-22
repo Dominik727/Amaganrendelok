@@ -39,8 +39,8 @@ export class SurgeryService {
   }
 
   updateSurgery(surgery: Surgery): Observable<any> {
-    const url = `${this.adminsurgeryUrl}/${surgery.id}`;
-    return this.http.put(url, surgery, this.httpOptions).pipe(
+    const url = `${this.adminsurgeryUrl}/${surgery.id}/edit`;
+    return this.http.post(url, surgery, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateSurgery'))
     );
   }
