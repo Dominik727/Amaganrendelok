@@ -1,36 +1,60 @@
 <div class="card mb-3 center text-white bg-dark">
-    <img class="image" src="./assets/szent-margit-rendelointezet.jpg" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{surgery.name | uppercase}}</h5>
+  <i class="fa fa-arrow-circle-left" (click)="goBack()"></i>
+  <img class="image" src="./assets/szent-margit-rendelointezet.jpg" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{surgery.name | uppercase}}</h5>
 
-        <table class="table table-borderless">
-            <tbody>
-              <tr>
-                <th>Nyitvatartás:</th>
-                <td>{{surgery.opening}}</td>
-              </tr>
-              <tr>
-                <th>Cím:</th>
-                <td>{{surgery.address}}</td>
-              </tr>
-              <tr>
-                <th>Tel.:</th>
-                <td>{{surgery.tel}}</td>
-              </tr>
-              <tr>
-                <th>Email:</th>
-                <td>{{surgery.email}}</td>
-              </tr>
-              <tr>
-                <th>Info:</th>
-                <td>{{surgery.info}}</td>
-              </tr>
-            </tbody>
-          </table>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th>Nyitvatartás:</th>
+          <td>{{surgery.opening}}</td>
+        </tr>
+        <tr>
+          <th>Cím:</th>
+          <td>{{surgery.address}}</td>
+        </tr>
+        <tr>
+          <th>Tel.:</th>
+          <td>{{surgery.tel}}</td>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <td>{{surgery.email}}</td>
+        </tr>
+        <tr>
+          <th>Info:</th>
+          <td>{{surgery.info}}</td>
+        </tr>
+      </tbody>
+    </table>
 
-        
-    </div>
-    <p class="card-text">Térkép:</p>
-    <iframe [src]="mapUrl()" width="auto" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+  </div>
+  <button class="btn btn-info" routerLink="/admin/surgeries/{{surgery.id}}/edit">Módosít</button>
+  <button class="delete btn btn-danger" title="delete surgery" (click)="open(mymodal)">Töröl</button>
+  <p class="card-text terkep">Térkép:</p>
+  <iframe [src]="mapUrl()" width="auto" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+    aria-hidden="false" tabindex="0"></iframe>
+  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 </div>
+
+
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Magánrendelő törlése</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Biztos benne, hogy törölni szeretné?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Vissza</button>
+    <button type="button" class="btn btn-danger" (click)="delete(surgery)"
+      (click)="modal.close('Close click')">Törlés</button>
+  </div>
+</ng-template>

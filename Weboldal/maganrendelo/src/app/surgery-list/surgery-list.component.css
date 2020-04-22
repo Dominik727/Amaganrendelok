@@ -17,3 +17,9 @@
 button:hover {
     background-color: orange;
   }
+
+button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+}

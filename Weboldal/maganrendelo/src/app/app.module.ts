@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SurgeryListComponent } from './surgery-list/surgery-list.component';
 import { SurgeryDetailComponent } from './surgery-detail/surgery-detail.component';
 import { CreateSurgeryComponent } from './create-surgery/create-surgery.component';
+import { EditSurgeryComponent } from './edit-surgery/edit-surgery.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CreateSurgeryComponent } from './create-surgery/create-surgery.componen
     NavbarComponent,
     SurgeryListComponent,
     SurgeryDetailComponent,
-    CreateSurgeryComponent
+    CreateSurgeryComponent,
+    EditSurgeryComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
