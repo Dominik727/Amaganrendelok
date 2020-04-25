@@ -1,24 +1,22 @@
 package simplifiedcoding.net.kotlinretrofittutorial.api
 
+import okhttp3.Request
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.*
 import simplifiedcoding.net.kotlinretrofittutorial.models.*
 
-interface Api {
+interface LOGINAPI {
+    @POST("/admin/login")
+    fun GetLogin(email : String, password : String)
+}
 
-    @FormUrlEncoded
-    @POST("registration")
-    fun createUser(newPatient: PatientDto): Call<PatientDto>
+interface REGISTERAPI {
+    @POST("/registration")
+    fun PostRegistration(@Body patient: PatientDto) : Call<PatientDto>
+}
 
-    @GET("admin/surgeries")
-    fun getSurgeries(
-            //TODO
-    ): Call<Surgery>
-
-    @FormUrlEncoded
-    @POST("login")
-    fun userLogin(
-            @Field("email") email:String,
-            @Field("password") password: String
-    ):Call<LoginResponse>
+interface SURGERYApi {
+    @GET("/surgeries")
+    fun GetSurgeries() : Callback<Array<Surgery>>
 }

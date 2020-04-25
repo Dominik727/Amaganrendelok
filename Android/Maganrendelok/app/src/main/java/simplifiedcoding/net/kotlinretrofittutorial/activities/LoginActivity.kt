@@ -9,9 +9,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import simplifiedcoding.net.kotlinretrofittutorial.api.RetrofitClient
-import simplifiedcoding.net.kotlinretrofittutorial.models.LoginResponse
-import simplifiedcoding.net.kotlinretrofittutorial.storage.SharedPrefManager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -38,41 +35,6 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            RetrofitClient.instance.userLogin(email, password)
-                    .enqueue(object: Callback<LoginResponse>{
-                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                        }
-
-                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                            if(!response.body()?.error!!){
-
-                                SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
-
-                                val intent = Intent(applicationContext, ProfileActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-                                startActivity(intent)
-
-
-                            }else{
-                                Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
-                            }
-
-                        }
-                    })
-
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        if(SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(applicationContext, ProfileActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
         }
     }
 }

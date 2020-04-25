@@ -3,17 +3,18 @@ package simplifiedcoding.net.kotlinretrofittutorial.activities
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.telecom.Call
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.Request
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import simplifiedcoding.net.kotlinretrofittutorial.api.RetrofitClient
-import simplifiedcoding.net.kotlinretrofittutorial.models.DefaultResponse
-import simplifiedcoding.net.kotlinretrofittutorial.models.Patient
+import simplifiedcoding.net.kotlinretrofittutorial.api.LOGINAPI
+import simplifiedcoding.net.kotlinretrofittutorial.api.REGISTERAPI
 import simplifiedcoding.net.kotlinretrofittutorial.models.PatientDto
-import simplifiedcoding.net.kotlinretrofittutorial.storage.SharedPrefManager
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
 
+        val retrofit = Retrofit.Builder()
+                .baseUrl("https://maganrendelo.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+        val currencAPI = retrofit.create(REGISTERAPI::class.java)
+
 
         buttonSignUp.setOnClickListener {
 
@@ -37,83 +45,78 @@ class MainActivity : AppCompatActivity() {
             val pass = editTextPassword.text.toString().trim()
 
 
-            if(email.isEmpty()){
+            if (email.isEmpty()) {
                 editTextEmail.error = "Email required"
                 editTextEmail.requestFocus()
                 return@setOnClickListener
             }
 
-            if(taj.isEmpty()){
+            if (taj.isEmpty()) {
                 editTextEmail.error = "Email required"
                 editTextEmail.requestFocus()
                 return@setOnClickListener
             }
 
-            if(tel.isEmpty()){
-                editTextEmail.error = "Email required"
-                editTextEmail.requestFocus()
+            if (tel.isEmpty()) {
+                editTextTel.error = "Email required"
+                editTextTel.requestFocus()
                 return@setOnClickListener
             }
 
 
-            if(pass.isEmpty()){
+            if (pass.isEmpty()) {
                 editTextPassword.error = "Password required"
                 editTextPassword.requestFocus()
                 return@setOnClickListener
             }
 
-            if(firstname.isEmpty()){
+            if (firstname.isEmpty()) {
                 editFirstname.error = "Name required"
                 editFirstname.requestFocus()
                 return@setOnClickListener
             }
 
-            if(lastname.isEmpty()){
+            if (lastname.isEmpty()) {
                 editLastname.error = "Name required"
                 editLastname.requestFocus()
                 return@setOnClickListener
             }
 
-            if(taj.isEmpty()){
+            if (taj.isEmpty()) {
                 editTextTaj.error = "School required"
                 editTextTaj.requestFocus()
                 return@setOnClickListener
             }
 
-            val user : PatientDto = PatientDto(
-                    editFirstname.text.toString(),
+            val user = PatientDto(
                     editLastname.text.toString(),
+                    editFirstname.text.toString(),
                     editTextEmail.text.toString(),
                     editTextTel.text.toString(),
                     editTextTaj.text.toString(),
                     editTextPassword.text.toString()
             )
 
-            RetrofitClient.instance.createUser(user)
-                    .enqueue(object : Callback<PatientDto> {
-                        override fun onFailure(call: retrofit2.Call<PatientDto>, t: Throwable) {
-                            TODO("Not yet implemented")
-                        }
+            val registercall = currencAPI.PostRegistration(user)
+            
+            registercall.enqueue(object : Callback<PatientDto>{
 
-                        override fun onResponse(call: retrofit2.Call<PatientDto>, response: Response<PatientDto>) {
-                            TODO("Not yet implemented")
-                        }
 
-                    })
+                override fun onFailure(call: Call<PatientDto>, t: Throwable) {
+                    Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
+                }
 
-        }
-    }
+                override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
+                    Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
+                }
 
-    override fun onStart() {
-        super.onStart()
+            })
+            
+            Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
 
-        if(SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(applicationContext, ProfileActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
         }
     }
 
 }
+
 
