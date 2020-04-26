@@ -1,10 +1,10 @@
-package simplifiedcoding.net.kotlinretrofittutorial.api
+package simplifiedcoding.net.maganrendelo.api
 
-import okhttp3.Request
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.http.*
-import simplifiedcoding.net.kotlinretrofittutorial.models.*
+import simplifiedcoding.net.maganrendelo.models.PatientDto
+import simplifiedcoding.net.maganrendelo.models.PatientLogin
+import simplifiedcoding.net.maganrendelo.models.Surgery
 
 interface LOGINAPI {
     @POST("/login")
@@ -17,6 +17,6 @@ interface REGISTERAPI {
 }
 
 interface SURGERYAPI {
-    @GET("/surgeries")
-    fun GetSurgeries() : Callback<Array<Surgery>>
+    @GET("/admin/surgeries")
+    fun GetSurgeries() : Call<Array<Surgery>>
 }

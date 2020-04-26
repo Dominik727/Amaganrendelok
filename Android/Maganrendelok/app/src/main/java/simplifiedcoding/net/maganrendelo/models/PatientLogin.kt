@@ -1,4 +1,4 @@
-package simplifiedcoding.net.kotlinretrofittutorial.models
+package simplifiedcoding.net.maganrendelo.models
 
 data class PatientLogin(
     var email: String,

@@ -1,20 +1,18 @@
-package simplifiedcoding.net.kotlinretrofittutorial.activities
+package simplifiedcoding.net.maganrendelo.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import simplifiedcoding.net.kotlinretrofittutorial.api.LOGINAPI
-import simplifiedcoding.net.kotlinretrofittutorial.api.REGISTERAPI
-import simplifiedcoding.net.kotlinretrofittutorial.models.PatientDto
+import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
+import simplifiedcoding.net.maganrendelo.models.PatientDto
 
 
 class MainActivity : AppCompatActivity() {
