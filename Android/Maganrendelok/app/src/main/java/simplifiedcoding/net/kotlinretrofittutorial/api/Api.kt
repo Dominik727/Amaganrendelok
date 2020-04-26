@@ -7,8 +7,8 @@ import retrofit2.http.*
 import simplifiedcoding.net.kotlinretrofittutorial.models.*
 
 interface LOGINAPI {
-    @POST("/admin/login")
-    fun GetLogin(email : String, password : String)
+    @POST("/login")
+    fun GetLogin(patient : PatientLogin) : Call<PatientLogin>
 }
 
 interface REGISTERAPI {
@@ -16,7 +16,7 @@ interface REGISTERAPI {
     fun PostRegistration(@Body patient: PatientDto) : Call<PatientDto>
 }
 
-interface SURGERYApi {
+interface SURGERYAPI {
     @GET("/surgeries")
     fun GetSurgeries() : Callback<Array<Surgery>>
 }

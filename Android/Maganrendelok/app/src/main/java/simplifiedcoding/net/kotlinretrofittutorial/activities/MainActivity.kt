@@ -108,11 +108,10 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
                     Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                 }
 
             })
-            
-            Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
 
         }
     }
