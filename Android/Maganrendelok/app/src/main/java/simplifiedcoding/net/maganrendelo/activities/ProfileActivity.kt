@@ -35,6 +35,14 @@ class ProfileActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Array<Surgery>>, response: Response<Array<Surgery>>) {
                 if (response.isSuccessful) {
+                    var surgeryList = ArrayList<Surgery>()
+
+                    for (item in response.body()!!) {
+                        surgeryList.add(item)
+                    }
+                    val teszt = surgeryList.size
+
+                    teszt.toString()
 
                 }
             }
