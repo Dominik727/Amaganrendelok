@@ -2,6 +2,8 @@ package simplifiedcoding.net.maganrendelo.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,6 +14,8 @@ import simplifiedcoding.net.maganrendelo.models.Surgery
 import simplifiedcoding.net.kotlinretrofittutorial.R
 
 class ProfileActivity : AppCompatActivity() {
+
+    private lateinit var listView : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +44,19 @@ class ProfileActivity : AppCompatActivity() {
                     for (item in response.body()!!) {
                         surgeryList.add(item)
                     }
-                    val teszt = surgeryList.size
+                    listView = findViewById<ListView>(R.id.recipe_list_view)
+                    val recipeList = surgeryList.toMutableList()
 
-                    teszt.toString()
+                    val listItems = arrayOfNulls<String>(recipeList.size)
+// 3
+                    for (i in 0 until recipeList.size) {
+                        val recipe = recipeList[i]
+                        listItems[i] = recipe.name
+                    }
+// 4
+                    val adapter = ArrayAdapter(this@ProfileActivity, android.R.layout.simple_list_item_1, listItems)
+                    listView.adapter = adapter
+
 
                 }
             }
