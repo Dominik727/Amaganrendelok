@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:lineSpacingExtra="7dp"
-        android:text="Don't have an Account?\nClick to Register"
+        android:text="Még nincs fiókja? Regisztráljon egyet!"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorFormBackground" />
@@ -68,7 +68,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Login"
+        android:text="Bejelentkezés"
         android:textAllCaps="false"
         android:textColor="@color/colorFormBackground" />
 

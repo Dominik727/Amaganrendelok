@@ -13,13 +13,13 @@ import simplifiedcoding.net.maganrendelo.api.SURGERYAPI
 import simplifiedcoding.net.maganrendelo.models.Surgery
 import simplifiedcoding.net.kotlinretrofittutorial.R
 
-class ProfileActivity : AppCompatActivity() {
+class ListSurgeries : AppCompatActivity() {
 
     private lateinit var listView : ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        setContentView(R.layout.activity_listsurgeries)
 
 
 
@@ -54,7 +54,7 @@ class ProfileActivity : AppCompatActivity() {
                         listItems[i] = recipe.name
                     }
 // 4
-                    val adapter = ArrayAdapter(this@ProfileActivity, android.R.layout.simple_list_item_1, listItems)
+                    val adapter = ArrayAdapter(this@ListSurgeries, android.R.layout.simple_list_item_1, listItems)
                     listView.adapter = adapter
 
 

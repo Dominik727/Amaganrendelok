@@ -28,20 +28,20 @@ class LoginActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString().trim()
 
             if(email.isEmpty()){
-                editTextEmail.error = "Email required"
+                editTextEmail.error = "Email megadása kötelező"
                 editTextEmail.requestFocus()
                 return@setOnClickListener
             }
 
 
             if(password.isEmpty()){
-                editTextPassword.error = "Password required"
+                editTextPassword.error = "Jelszó megadása kötelező"
                 editTextPassword.requestFocus()
                 return@setOnClickListener
             }
 
 
-            startActivity(Intent(this@LoginActivity, ProfileActivity::class.java))
+            startActivity(Intent(this@LoginActivity, ListSurgeries::class.java))
 
             /*val user = PatientLogin(email, password)
 

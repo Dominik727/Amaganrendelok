@@ -13,9 +13,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.kotlinretrofittutorial.R
 import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
 import simplifiedcoding.net.maganrendelo.models.PatientDto
+import java.util.regex.Pattern
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val PASSWORD_PATTERN: Pattern = Pattern.compile(
+            "^" +  //"(?=.*[0-9])" +         //at least 1 digit
+            //"(?=.*[a-z])" +         //at least 1 lower case letter
+            //"(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=\\S+$)" +  //no white spaces
+            ".{4,}" +  //at least 4 characters
+            "$")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,45 +53,69 @@ class MainActivity : AppCompatActivity() {
 
 
             if (email.isEmpty()) {
-                editTextEmail.error = "Email required"
+                editTextEmail.error = "Email megadása kötelező"
                 editTextEmail.requestFocus()
                 return@setOnClickListener
             }
 
             if (taj.isEmpty()) {
-                editTextEmail.error = "Email required"
+                editTextEmail.error = "Tajszám megadása kötelező"
                 editTextEmail.requestFocus()
                 return@setOnClickListener
             }
 
             if (tel.isEmpty()) {
-                editTextTel.error = "Email required"
+                editTextTel.error = "Telefonszám megadása kötelező"
                 editTextTel.requestFocus()
                 return@setOnClickListener
             }
 
 
             if (pass.isEmpty()) {
-                editTextPassword.error = "Password required"
+                editTextPassword.error = "Jelszó megadása kötelező"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (!"[a-zA-ZşŞÇçÖöüÜıIiİĞğ]+".toRegex().containsMatchIn(pass)) {  //any letter
+                editTextPassword.error = "Tartalmaznia kell betűt"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (!"[^0-9]".toRegex().containsMatchIn(pass)) {  //any letter
+                editTextPassword.error = "Tartalmaznia kell számot is"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (!"[!@#\$%^&*(),.?\":{}|<>]".toRegex().containsMatchIn(pass)) {  //at least 1 special character
+                editTextPassword.error = "Speciális karaktert kell tartalmaznia! pl. @ , !"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            if ("[-\\s]".toRegex().containsMatchIn(pass)) {  //no white spaces
+                editTextPassword.error = "Nem tartalmazhat szóközt"
+                editTextPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (pass.length < 6 || pass.length > 12) {  //letter number
+                editTextPassword.error = "Legalább 6, de legfeljebb 12 karakterből kell állnia"
                 editTextPassword.requestFocus()
                 return@setOnClickListener
             }
 
             if (firstname.isEmpty()) {
-                editFirstname.error = "Name required"
+                editFirstname.error = "Keresztnév megadása kötelező"
                 editFirstname.requestFocus()
                 return@setOnClickListener
             }
 
             if (lastname.isEmpty()) {
-                editLastname.error = "Name required"
+                editLastname.error = "Vezetéknév megadása kötelező"
                 editLastname.requestFocus()
-                return@setOnClickListener
-            }
-
-            if (taj.isEmpty()) {
-                editTextTaj.error = "School required"
-                editTextTaj.requestFocus()
                 return@setOnClickListener
             }
 
@@ -101,11 +134,11 @@ class MainActivity : AppCompatActivity() {
 
 
                 override fun onFailure(call: Call<PatientDto>, t: Throwable) {
-                    Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
-                    Toast.makeText(applicationContext, "passz", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                 }
 

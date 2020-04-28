@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name="simplifiedcoding.net.maganrendelo.activities.LoginActivity" />
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.ProfileActivity"></activity>
+        <activity android:name="simplifiedcoding.net.maganrendelo.activities.ListSurgeries"></activity>
     </application>
 
 </manifest>
