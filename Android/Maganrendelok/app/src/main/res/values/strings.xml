@@ -14,4 +14,5 @@
     <string name="password_strength_strong">Erős</string>
     <string name="password_strength_very_strong">Nagyon erős</string>
     <string name="your_password_must_be">Kis- és nagybetűt, számot, illetve speciális karaktert kell tartalmaznia. A jelszó 6-12 karakter lehet</string>
+    <string name="PrivacyPolicy">Az adatkezelési tájékoztatót elfogadom!</string>
 </resources>

@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -127,6 +125,16 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 return@setOnClickListener
             }
 
+            if (!findViewById<CheckBox>(R.id.checkBox).isChecked) {
+                checkBox.error = "Kötelező elfogadni!"
+                checkBox.requestFocus()
+                return@setOnClickListener
+            }
+
+            waiting.visibility = View.VISIBLE
+            buttonSignUp.isEnabled = false
+
+
             val user = PatientDto(
                     editLastname.text.toString(),
                     editFirstname.text.toString(),
@@ -142,12 +150,18 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
 
                 override fun onFailure(call: Call<PatientDto>, t: Throwable) {
+                    Thread.sleep(1_000)
                     Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
+                    waiting.visibility = View.INVISIBLE
+                    buttonSignUp.isEnabled = true
                 }
 
                 override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
+                    Thread.sleep(1_000)
                     Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                    waiting.visibility = View.INVISIBLE
+                    buttonSignUp.isEnabled = true
                 }
 
             })

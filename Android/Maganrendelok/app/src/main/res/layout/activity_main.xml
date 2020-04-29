@@ -112,6 +112,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/PrivacyPolicy"
+            />
+
 
     </LinearLayout>
 
@@ -139,5 +146,15 @@
         android:text="@string/registration"
         android:textAllCaps="false"
         android:textColor="@color/colorFormBackground" />
+
+
+    <ProgressBar
+        android:id="@+id/waiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible">
+    </ProgressBar>
 
 </RelativeLayout>
