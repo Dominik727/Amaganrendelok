@@ -19,9 +19,6 @@ class LoginActivity : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-
-
-
         buttonLogin.setOnClickListener {
 
             val email = editTextEmail.text.toString().trim()
@@ -40,6 +37,11 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if(!"^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})\$".toRegex().matches(email)) {
+                editTextEmail.error = "Kérem érvényes email címet adjon meg!"
+                editTextEmail.requestFocus()
+                return@setOnClickListener
+            }
 
             startActivity(Intent(this@LoginActivity, ListSurgeries::class.java))
 

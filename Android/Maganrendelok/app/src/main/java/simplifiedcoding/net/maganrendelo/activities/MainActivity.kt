@@ -3,6 +3,12 @@ package simplifiedcoding.net.maganrendelo.activities
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -12,23 +18,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.kotlinretrofittutorial.R
 import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
+import simplifiedcoding.net.maganrendelo.data.PasswordStrength
 import simplifiedcoding.net.maganrendelo.models.PatientDto
 import java.util.regex.Pattern
 
 
-class MainActivity : AppCompatActivity() {
-
-    private val PASSWORD_PATTERN: Pattern = Pattern.compile(
-            "^" +  //"(?=.*[0-9])" +         //at least 1 digit
-            //"(?=.*[a-z])" +         //at least 1 lower case letter
-            //"(?=.*[A-Z])" +         //at least 1 upper case letter
-            "(?=\\S+$)" +  //no white spaces
-            ".{4,}" +  //at least 4 characters
-            "$")
+class MainActivity : AppCompatActivity(), TextWatcher {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val pass = findViewById<EditText>(R.id.editTextPassword) as EditText
+        pass.addTextChangedListener(this)
 
         textViewLogin.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
@@ -89,6 +91,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if(!"^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})\$".toRegex().matches(email)) {
+                editTextEmail.error = "Kérem érvényes email címet adjon meg!"
+                editTextEmail.requestFocus()
+                return@setOnClickListener
+            }
+
             if (!"[!@#\$%^&*(),.?\":{}|<>]".toRegex().containsMatchIn(pass)) {  //at least 1 special character
                 editTextPassword.error = "Speciális karaktert kell tartalmaznia! pl. @ , !"
                 editTextPassword.requestFocus()
@@ -146,7 +154,44 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    override fun afterTextChanged(s: Editable) {}
 
+    override fun beforeTextChanged(
+            s: CharSequence, start: Int, count: Int, after: Int) {
+    }
+
+    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+        updatePasswordStrengthView(s.toString())
+    }
+
+    private fun updatePasswordStrengthView(pass: String) {
+
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
+        val strengthView = findViewById<ProgressBar>(R.id.password_strength) as TextView
+        if (TextView.VISIBLE != strengthView.visibility)
+            return
+
+        if (TextUtils.isEmpty(pass)) {
+            strengthView.text = ""
+            progressBar.progress = 0
+            return
+        }
+
+        val str = PasswordStrength.calculateStrength(pass)
+        strengthView.text = str.getText(this)
+        strengthView.setTextColor(str.color)
+
+        progressBar.progressDrawable.setColorFilter(str.color, android.graphics.PorterDuff.Mode.SRC_IN)
+        if (str.getText(this) == "Weak") {
+            progressBar.progress = 25
+        } else if (str.getText(this) == "Medium") {
+            progressBar.progress = 50
+        } else if (str.getText(this) == "Strong") {
+            progressBar.progress = 75
+        } else {
+            progressBar.progress = 100
+        }
+    }
 }
 
 

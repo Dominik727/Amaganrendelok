@@ -13,7 +13,7 @@
         android:layout_above="@id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Regisztráció"
+        android:text="@string/registration_text"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorFormBackground" />
 
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-            android:hint="Keresztnév"
+            android:hint="@string/firstname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
-            android:hint="Vezetéknév"
+            android:hint="@string/lastname"
             android:inputType="textPersonName" />
 
         <EditText
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
 
             android:drawablePadding="5dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
 
             android:drawablePadding="5dp"
-            android:hint="Tel"
+            android:hint="@string/Telephone"
             android:inputType="phone" />
 
         <EditText
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
 
             android:drawablePadding="5dp"
-            android:hint="Tajszám"
+            android:hint="@string/TAJnumber"
             android:inputType="text" />
 
         <EditText
@@ -77,8 +77,41 @@
             android:layout_height="wrap_content"
 
             android:drawablePadding="5dp"
-            android:hint="jelszó"
+            android:hint="@string/password"
             android:inputType="textPassword" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:maxHeight="20dip"
+            android:minHeight="20dip"
+            android:progress="0"
+            app:layout_constraintEnd_toStartOf="@+id/password_strength"
+            app:layout_constraintStart_toStartOf="@+id/login_password"
+            app:layout_constraintTop_toBottomOf="@+id/login_password" />
+
+        <TextView
+            android:id="@+id/password_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Weak"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="@+id/login_password"
+            app:layout_constraintTop_toBottomOf="@+id/login_password" />
+
+        <TextView
+            android:id="@+id/login_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_password_must_be"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
 
     </LinearLayout>
 
@@ -90,7 +123,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:lineSpacingExtra="7dp"
-        android:text="Már van fiókodt?\nKattints ide a bejelentkezéshez"
+        android:text="@string/haveAccount"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorFormBackground" />
@@ -103,7 +136,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Regisztrálok"
+        android:text="@string/registration"
         android:textAllCaps="false"
         android:textColor="@color/colorFormBackground" />
 
