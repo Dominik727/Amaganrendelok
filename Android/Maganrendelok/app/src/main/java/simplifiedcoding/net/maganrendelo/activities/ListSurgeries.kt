@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.maganrendelo.api.SURGERYAPI
 import simplifiedcoding.net.maganrendelo.models.Surgery
 import simplifiedcoding.net.kotlinretrofittutorial.R
+import simplifiedcoding.net.maganrendelo.data.SurgeryAdapter
 
 class ListSurgeries : AppCompatActivity() {
 
@@ -44,22 +45,22 @@ class ListSurgeries : AppCompatActivity() {
                     for (item in response.body()!!) {
                         surgeryList.add(item)
                     }
-                    listView = findViewById<ListView>(R.id.recipe_list_view)
+                    listView = findViewById<ListView>(R.id.surgery_list_view)
                     val recipeList = surgeryList.toMutableList()
 
-                    val listItems = arrayOfNulls<String>(recipeList.size)
+                    val listItems = ArrayList<Surgery>()
 // 3
                     for (i in 0 until recipeList.size) {
-                        val recipe = recipeList[i]
-                        listItems[i] = recipe.name
+                        listItems.add(recipeList[i])
                     }
-// 4
-                    val adapter = ArrayAdapter(this@ListSurgeries, android.R.layout.simple_list_item_1, listItems)
+                    val adapter = SurgeryAdapter(this@ListSurgeries, listItems)
                     listView.adapter = adapter
-
-
                 }
+
+
             }
+
+
 
         })
 

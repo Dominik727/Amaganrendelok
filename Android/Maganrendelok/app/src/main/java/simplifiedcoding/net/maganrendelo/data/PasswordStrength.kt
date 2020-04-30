@@ -53,8 +53,8 @@ enum class PasswordStrength private constructor(internal var resId: Int, color: 
             var sawSpecial = false
 
 
-            for (i in 0 until pass.length) {
-                val c = pass[i]
+            for (element in pass) {
+                val c = element
 
                 if (!sawSpecial && !Character.isLetterOrDigit(c)) {
                     currentScore += 1
