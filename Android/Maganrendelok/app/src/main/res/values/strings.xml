@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AMaganrendelok</string>
+    <string name="registration">Regisztrálok</string>
+    <string name="haveAccount">Már van fiókod?\nKattints ide a bejelentkezéshez</string>
+    <string name="password">jelszó</string>
+    <string name="TAJnumber">Tajszám</string>
+    <string name="Telephone">Telefonszám</string>
+    <string name="email">Email</string>
+    <string name="lastname">Vezetéknév</string>
+    <string name="firstname">Keresztnév</string>
+    <string name="registration_text">Regisztráció</string>
+    <string name="password_strength_weak">Gyenge</string>
+    <string name="password_strength_medium">Közepes</string>
+    <string name="password_strength_strong">Erős</string>
+    <string name="password_strength_very_strong">Nagyon erős</string>
+    <string name="your_password_must_be">Kis- és nagybetűt, számot, illetve speciális karaktert kell tartalmaznia. A jelszó 6-12 karakter lehet</string>
+    <string name="PrivacyPolicy">Az adatkezelési tájékoztatót elfogadom!</string>
+    <string name="thumbnail">Surgery main picture</string>
+</resources>
