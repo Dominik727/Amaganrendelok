@@ -9,7 +9,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +18,6 @@ import simplifiedcoding.net.kotlinretrofittutorial.R
 import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
 import simplifiedcoding.net.maganrendelo.data.PasswordStrength
 import simplifiedcoding.net.maganrendelo.models.PatientDto
-import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity(), TextWatcher {
@@ -126,15 +124,14 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                 return@setOnClickListener
             }
 
-            if (!findViewById<CheckBox>(R.id.checkBox).isChecked) {
-                checkBox.error = "Kötelező elfogadni!"
-                checkBox.requestFocus()
+            if (!findViewById<CheckBox>(R.id.editcheckBox).isChecked) {
+                editcheckBox.error = "Kötelező elfogadni!"
+                editcheckBox.requestFocus()
                 return@setOnClickListener
             }
 
             waiting.visibility = View.VISIBLE
-            buttonSignUp.isEnabled = false
-
+            disableAllEditText(false)
 
             val user = PatientDto(
                     editLastname.text.toString(),
@@ -155,8 +152,8 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                         if (attempt > 3) {
                             Thread.sleep(1_000)
                             Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
+                            disableAllEditText(true)
                             waiting.visibility = View.INVISIBLE
-                            buttonSignUp.isEnabled = true
                         }
                         attempt += 1
                         registercall.clone().enqueue(this)
@@ -166,8 +163,8 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                         Thread.sleep(1_000)
                         Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                        disableAllEditText(true)
                         waiting.visibility = View.INVISIBLE
-                        buttonSignUp.isEnabled = true
                     }
 
                 })
@@ -212,6 +209,20 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             progressBar.progress = 75
         } else {
             progressBar.progress = 100
+        }
+    }
+
+    private fun disableAllEditText(status: Boolean) {
+
+        buttonSignUp.isEnabled = status
+        val edit = findViewById<View>(R.id.registration) as RelativeLayout
+        for (view in edit.touchables) {
+            if (view is EditText || view is CheckBox) {
+                val editText = view
+                editText.isEnabled = status
+                editText.isFocusable = status
+                editText.isFocusableInTouchMode = status
+            }
         }
     }
 }
