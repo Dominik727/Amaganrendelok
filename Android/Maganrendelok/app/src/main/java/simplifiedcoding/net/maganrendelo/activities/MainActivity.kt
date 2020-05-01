@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +19,7 @@ import simplifiedcoding.net.kotlinretrofittutorial.R
 import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
 import simplifiedcoding.net.maganrendelo.data.PasswordStrength
 import simplifiedcoding.net.maganrendelo.models.PatientDto
-import java.util.regex.Pattern
+import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity(), TextWatcher {
@@ -144,27 +145,34 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                     editTextPassword.text.toString()
             )
 
+            var attempt = 0
+
             val registercall = currencAPI.PostRegistration(user)
+
+                registercall.enqueue(object : Callback<PatientDto>{
+
+                    override fun onFailure(call: Call<PatientDto>, t: Throwable) {
+                        if (attempt > 3) {
+                            Thread.sleep(1_000)
+                            Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
+                            waiting.visibility = View.INVISIBLE
+                            buttonSignUp.isEnabled = true
+                        }
+                        attempt += 1
+                        registercall.clone().enqueue(this)
+                    }
+
+                    override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
+                        Thread.sleep(1_000)
+                        Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                        waiting.visibility = View.INVISIBLE
+                        buttonSignUp.isEnabled = true
+                    }
+
+                })
             
-            registercall.enqueue(object : Callback<PatientDto>{
 
-
-                override fun onFailure(call: Call<PatientDto>, t: Throwable) {
-                    Thread.sleep(1_000)
-                    Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
-                    waiting.visibility = View.INVISIBLE
-                    buttonSignUp.isEnabled = true
-                }
-
-                override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
-                    Thread.sleep(1_000)
-                    Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                    waiting.visibility = View.INVISIBLE
-                    buttonSignUp.isEnabled = true
-                }
-
-            })
 
         }
     }
