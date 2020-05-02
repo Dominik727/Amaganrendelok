@@ -1,4 +1,4 @@
-package simplifiedcoding.net.kotlinretrofittutorial
+package maganrendelok
 
 import org.junit.Test
 

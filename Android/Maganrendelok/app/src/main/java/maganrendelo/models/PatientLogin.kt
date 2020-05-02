@@ -1,4 +1,4 @@
-package simplifiedcoding.net.maganrendelo.models
+package maganrendelo.models
 
 data class PatientLogin(
     var email: String,

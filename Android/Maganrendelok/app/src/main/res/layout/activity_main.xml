@@ -6,7 +6,7 @@
     android:id="@+id/registration"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBackground"
-    tools:context="simplifiedcoding.net.maganrendelo.activities.MainActivity">
+    tools:context="maganrendelo.activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

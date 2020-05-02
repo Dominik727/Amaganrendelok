@@ -1,4 +1,4 @@
-package simplifiedcoding.net.maganrendelo.activities
+package maganrendelo.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

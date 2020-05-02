@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.SurgeryDetail"></activity>
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.MainActivity">
+        <activity android:name="maganrendelo.activities.SurgeryDetail"></activity>
+        <activity android:name="maganrendelo.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.LoginActivity" />
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.ListSurgeries" />
+        <activity android:name="maganrendelo.activities.LoginActivity" />
+        <activity android:name="maganrendelo.activities.ListSurgeries" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

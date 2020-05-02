@@ -1,4 +1,4 @@
-package simplifiedcoding.net.maganrendelo.data
+package maganrendelo.data
 
 import android.graphics.Color
 import simplifiedcoding.net.kotlinretrofittutorial.R
