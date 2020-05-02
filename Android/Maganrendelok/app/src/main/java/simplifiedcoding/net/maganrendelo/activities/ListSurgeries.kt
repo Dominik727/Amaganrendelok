@@ -1,9 +1,13 @@
 package simplifiedcoding.net.maganrendelo.activities
 
+import android.content.ClipData.newIntent
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import kotlinx.android.synthetic.main.list_item_surgery.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,8 +25,6 @@ class ListSurgeries : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listsurgeries)
-
-
 
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://maganrendelo.herokuapp.com/")
@@ -46,15 +48,27 @@ class ListSurgeries : AppCompatActivity() {
                         surgeryList.add(item)
                     }
                     listView = findViewById<ListView>(R.id.surgery_list_view)
-                    val recipeList = surgeryList.toMutableList()
+                    val surgerylist = surgeryList.toMutableList()
 
                     val listItems = ArrayList<Surgery>()
 // 3
-                    for (i in 0 until recipeList.size) {
-                        listItems.add(recipeList[i])
+                    for (i in 0 until surgerylist.size) {
+                        listItems.add(surgerylist[i])
                     }
                     val adapter = SurgeryAdapter(this@ListSurgeries, listItems)
                     listView.adapter = adapter
+
+                    val context : Context = this@ListSurgeries
+                    listView.setOnItemClickListener { _, _, position, _ ->
+                        // 1
+                        val selectedSurgery = surgerylist[position]
+
+                        // 2
+                        val detailIntent = SurgeryDetail.newIntent(context, selectedSurgery)
+
+                        // 3
+                        startActivity(detailIntent)
+                    }
                 }
 
 
@@ -62,8 +76,11 @@ class ListSurgeries : AppCompatActivity() {
 
 
 
+
         })
 
 
     }
+
+
 }
