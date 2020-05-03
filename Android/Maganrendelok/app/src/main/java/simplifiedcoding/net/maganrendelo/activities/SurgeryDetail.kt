@@ -1,11 +1,12 @@
-package maganrendelo.activities
+package simplifiedcoding.net.maganrendelo.activities
 
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import maganrendelo.models.Surgery
+import simplifiedcoding.net.maganrendelo.data.SurgeryAdapter
+import simplifiedcoding.net.maganrendelo.models.Surgery
 
 class SurgeryDetail : AppCompatActivity() {
 

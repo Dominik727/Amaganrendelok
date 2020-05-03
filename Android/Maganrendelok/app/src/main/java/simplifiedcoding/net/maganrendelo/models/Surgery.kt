@@ -1,4 +1,4 @@
-package maganrendelo.models
+package simplifiedcoding.net.maganrendelo.models
 
 data class Surgery (
         var id: String,

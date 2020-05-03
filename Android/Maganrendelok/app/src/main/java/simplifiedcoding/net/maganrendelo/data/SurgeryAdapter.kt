@@ -1,4 +1,4 @@
-package maganrendelo.data
+package simplifiedcoding.net.maganrendelo.data
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import maganrendelo.models.Surgery
+import simplifiedcoding.net.maganrendelo.models.Surgery
 
 class SurgeryAdapter (private val context: Context,
                       private val dataSource: ArrayList<Surgery>) : BaseAdapter() {

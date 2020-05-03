@@ -1,4 +1,4 @@
-package maganrendelo.activities
+package simplifiedcoding.net.maganrendelo.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,9 +15,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import simplifiedcoding.net.kotlinretrofittutorial.R
-import maganrendelo.api.REGISTERAPI
-import maganrendelo.data.PasswordStrength
-import maganrendelo.models.PatientDto
+import simplifiedcoding.net.maganrendelo.api.REGISTERAPI
+import simplifiedcoding.net.maganrendelo.data.PasswordStrength
+import simplifiedcoding.net.maganrendelo.models.PatientDto
 
 
 class MainActivity : AppCompatActivity(), TextWatcher {
