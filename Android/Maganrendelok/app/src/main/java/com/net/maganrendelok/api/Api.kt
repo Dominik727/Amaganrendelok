@@ -1,10 +1,10 @@
-package simplifiedcoding.net.maganrendelo.api
+package com.net.maganrendelok.api
 
 import retrofit2.Call
 import retrofit2.http.*
-import simplifiedcoding.net.maganrendelo.models.PatientDto
-import simplifiedcoding.net.maganrendelo.models.PatientLogin
-import simplifiedcoding.net.maganrendelo.models.Surgery
+import com.net.maganrendelok.models.PatientDto
+import com.net.maganrendelok.models.PatientLogin
+import com.net.maganrendelok.models.Surgery
 
 interface LOGINAPI {
     @POST("/login")

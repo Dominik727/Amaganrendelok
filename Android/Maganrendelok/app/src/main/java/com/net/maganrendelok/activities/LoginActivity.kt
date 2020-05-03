@@ -1,4 +1,4 @@
-package simplifiedcoding.net.maganrendelo.activities
+package com.net.maganrendelok.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import simplifiedcoding.net.kotlinretrofittutorial.R
+import com.net.maganrendelok.R
 
 class LoginActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
-package simplifiedcoding.net.maganrendelo.data
+package com.net.maganrendelok.data
 
 import android.graphics.Color
-import simplifiedcoding.net.kotlinretrofittutorial.R
+import com.net.maganrendelok.R
 
 enum class PasswordStrength private constructor(internal var resId: Int, color: Int) {
 

@@ -1,6 +1,7 @@
-package simplifiedcoding.net.maganrendelo.models
+package com.net.maganrendelok.models
 
-data class PatientDto (
+data class Patient (
+        var id: Int?,
         var lastname: String,
         var firstname: String,
         var email: String,
