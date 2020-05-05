@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SurgeryDetail">
+    tools:context=".activities.SurgeryDetail"
+    tools:menu="@menu/main">
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"></LinearLayout>
+    </fragment>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="teszt">
+
+    </TextView>
 </RelativeLayout>

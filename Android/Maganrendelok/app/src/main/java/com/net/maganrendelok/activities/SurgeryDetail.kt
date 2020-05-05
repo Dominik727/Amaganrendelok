@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import com.net.maganrendelok.R
 import com.net.maganrendelok.models.Surgery
 
@@ -20,6 +21,12 @@ class SurgeryDetail : AppCompatActivity() {
 
             return detailIntent
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

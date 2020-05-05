@@ -7,12 +7,23 @@ import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.net.maganrendelok.R
+import kotlinx.android.synthetic.main.activity_login.editTextEmail
+import kotlinx.android.synthetic.main.activity_login.editTextPassword
+import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        textViewRegister.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        toolbar2.setNavigationOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://maganrendelo.herokuapp.com/")
@@ -64,4 +75,5 @@ class LoginActivity : AppCompatActivity() {
 
         }
     }
+
 }

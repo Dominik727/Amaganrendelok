@@ -8,16 +8,16 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
 import android.widget.*
+import com.net.maganrendelok.R
+import com.net.maganrendelok.api.REGISTERAPI
+import com.net.maganrendelok.data.PasswordStrength
+import com.net.maganrendelok.models.PatientDto
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.net.maganrendelok.R
-import com.net.maganrendelok.api.REGISTERAPI
-import com.net.maganrendelok.data.PasswordStrength
-import com.net.maganrendelok.models.PatientDto
 
 
 class MainActivity : AppCompatActivity(), TextWatcher {
@@ -173,6 +173,7 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
         }
     }
+
     override fun afterTextChanged(s: Editable) {}
 
     override fun beforeTextChanged(

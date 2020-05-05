@@ -16,4 +16,6 @@
     <string name="your_password_must_be">Kis- és nagybetűt, számot, illetve speciális karaktert kell tartalmaznia. A jelszó 6-12 karakter lehet</string>
     <string name="PrivacyPolicy">Az adatkezelési tájékoztatót elfogadom!</string>
     <string name="thumbnail">Surgery main picture</string>
+    <string name="toolbar_registration">Magánrendelők</string>
+    <string name="login_name">Bejelentkezés</string>
 </resources>
