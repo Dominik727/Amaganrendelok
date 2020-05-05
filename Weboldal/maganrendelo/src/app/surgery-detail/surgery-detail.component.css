@@ -82,3 +82,7 @@
   .fa-arrow-circle-left::before{
       cursor: pointer;
   }
+
+  .card{
+    border-radius: 30px;
+  }

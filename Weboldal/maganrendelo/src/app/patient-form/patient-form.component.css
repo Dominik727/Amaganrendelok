@@ -3,4 +3,13 @@
     float: none;
     margin-bottom: 10px;
     width: 450px;
+    border-radius: 30px;
 }
+
+.invalid-data {  
+    border: 2px solid red;  
+}  
+  
+.valid-data {  
+    border: 2px solid rgb(19, 92, 4);  
+} 

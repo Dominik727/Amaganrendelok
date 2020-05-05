@@ -20,9 +20,9 @@
                 <a class="nav-link" routerLink="/registration">Regisztráció</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" id="search-component">
-            <input class="form-control mr-sm-2" type="search" placeholder="Keresés" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
-        </form>
+        <div class="form-inline my-2 my-lg-0" id="search-component">
+            <input class="form-control mr-sm-2" [(ngModel)]="searchText" type="search" placeholder="Keresés" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/surgeries/{{searchText}}">Keresés</button>
+        </div>
     </div>
 </nav>

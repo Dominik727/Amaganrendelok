@@ -20,6 +20,7 @@ export class CreateSurgeryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.url = "./assets/placeholder.webp";
   }
 
   onSubmit() {
@@ -36,6 +37,7 @@ export class CreateSurgeryComponent implements OnInit {
 
   
   onSelectFile(event) {
+    console.log(event);
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 

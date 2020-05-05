@@ -1,60 +1,94 @@
 <div class="card my-5" style="background-color:rgb(53, 58, 64);">
     <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" #patientForm="ngForm">
         <div class="form-group">
             <label style="color: honeydew;" for="lastname">Vezetéknév</label>
             <input type="text" [(ngModel)]="patient.lastname" 
+              [ngClass]="{'is-invalid': form.get('lastname').touched && form.get('lastname').invalid}"
+              formControlName="lastname"
               class="form-control"
               id="lastname"
               name="lastname"
-              placeholder="Vezetéknév"
-              required #lastname="ngModel">
+              placeholder="Vezetéknév">
+              <div *ngIf="form.get('lastname').touched && form.get('lastname').invalid" class="invalid-feedback">
+                <div *ngIf="form.get('lastname').errors.required">A vezetéknév kitöltése kötelező</div>
+                <div *ngIf="form.get('lastname').errors.pattern">Csak betűket használjon és az első karakter legyen nagy betűs!</div>
+              </div>
         </div>
         <div class="form-group">
           <label style="color: honeydew;" for="firstname">Keresztnév</label>
           <input type="text" [(ngModel)]="patient.firstname" 
+            [ngClass]="{'is-invalid': form.get('firstname').touched && form.get('firstname').invalid}"
+            formControlName="firstname"
             class="form-control"
             id="firstname"
             name="firstname"
-            placeholder="Keresztnév"
-            required #firstname="ngModel">
+            placeholder="Keresztnév">
+            <div *ngIf="form.get('firstname').touched && form.get('firstname').invalid" class="invalid-feedback">
+              <div *ngIf="form.get('firstname').errors.required">A keresztnév kitöltése kötelező</div>
+              <div *ngIf="form.get('firstname').errors.pattern">Csak betűket használjon és az első karakter legyen nagy betűs!</div>
+            </div>
         </div>
         <div class="form-group">
             <label style="color: honeydew;" for="email">Email</label>
             <input type="text" [(ngModel)]="patient.email" 
+              [ngClass]="{'is-invalid': form.get('email').touched && form.get('email').invalid}"
+              formControlName="email"
               class="form-control"
               id="email"
               name="email"
-              placeholder="Email"
-              required #email="ngModel">
+              placeholder="Email">
+              <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+                <div *ngIf="form.get('email').errors.required">Az email kitöltése kötelező</div>
+                <div *ngIf="form.get('email').errors.email">Hibás email cím</div>
+              </div>
         </div>
         <div class="form-group">
             <label style="color: honeydew;" for="tel">Telefon</label>
             <input type="text" [(ngModel)]="patient.tel" 
+              [ngClass]="{'is-invalid': form.get('tel').touched && form.get('tel').invalid}"
+              formControlName="tel"
               class="form-control"
               id="tel"
               name="tel"
-              placeholder="Tel"
-              required #tel="ngModel">
+              placeholder="Tel">
+              <div *ngIf="form.get('tel').touched && form.get('tel').invalid" class="invalid-feedback">
+                <div *ngIf="form.get('tel').errors.required">A telefonszám kitöltése kötelező</div>
+                <div *ngIf="form.get('tel').errors.pattern">Hibás telefonszám</div>
+                <div *ngIf="form.get('tel').errors.minlength">Ha "+"-al írja -> 12 karakter, ha "06"-tal -> 11 karakter</div>
+                <div *ngIf="form.get('tel').errors.maxlength">Ha "+"-al írja -> 12 karakter, ha "06"-tal -> 11 karakter</div>
+              </div>
         </div>
         <div class="form-group">
           <label style="color: honeydew;" for="taj">TAJ</label>
           <input type="text" [(ngModel)]="patient.taj" 
+            [ngClass]="{'is-invalid': form.get('taj').touched && form.get('taj').invalid}"
+            formControlName="taj"
             class="form-control"
             id="taj"
             name="taj"
-            placeholder="TAJ"
-            required #taj="ngModel">
+            placeholder="TAJ">
+            <div *ngIf="form.get('taj').touched && form.get('taj').invalid" class="invalid-feedback">
+              <div *ngIf="form.get('taj').errors.required">A taj szám kitöltése kötelező</div>
+              <div *ngIf="form.get('taj').errors.pattern">Hibás TAJ szám (csak számokat tartalmazhat)</div>
+              <div *ngIf="form.get('taj').errors.minlength">9 karakteresnek kell lennie</div> 
+              <div *ngIf="form.get('taj').errors.maxlength">9 karakteresnek kell lennie</div> 
+            </div>
         </div>
         <div class="form-group">
           <label style="color: honeydew;" for="pass">Jelszó</label>
           <input type="text" [(ngModel)]="patient.pass" 
+            [ngClass]="{'is-invalid': form.get('pass').touched && form.get('pass').invalid}"
+            formControlName="pass"
             class="form-control"
             id="pass"
             name="pass"
             type="password"
-            placeholder="Jelszó"
-            required #pass="ngModel">
+            placeholder="Jelszó">
+            <div *ngIf="form.get('pass').touched && form.get('pass').invalid" class="invalid-feedback">
+              <div *ngIf="form.get('pass').errors.required">A jelszó kitöltése kötelező</div>
+              <div *ngIf="form.get('pass').errors.minlength">Legalább 6 karakter hosszú legyen</div>
+            </div>
         </div>
         <button type="submit" [disabled]="!patientForm.form.valid" 
           class="btn btn-info">Regisztráció</button>

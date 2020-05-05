@@ -3,34 +3,19 @@
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
-    width: 400px;
-    margin: auto;
-    padding: 10px;
   }
-
-  h5{
-      text-align: center;
-      margin: auto;
-      padding: 10px;
-  }
-
-  label{
-      margin-left: 70px;
-  }
-
   button {
     margin-top: 20px;
     font-family: Arial;
-    background-color: orange;
+    background-color: rgb(146, 146, 146);
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
-    margin-left: 70px;
   }
   button:hover {
-    background-color: green;
+    background-color: rgb(114, 114, 114);
   }
   button:disabled {
     background-color: #eee;
@@ -38,18 +23,22 @@
     cursor: auto;
   }
 
-  .img{
-    max-width: 200px;
+  .border{
+    width: 320px;
+    height: 320px;
+    margin-top: 40px;
   }
 
+
   .image{
-      height: 400px;;
+      width: 300px;
+      height: 300px;
   }
 
   .center {
     margin: auto;
     padding: 10px;
-    text-align: left;
+    text-align: center;
   }
 
   button{
@@ -62,12 +51,43 @@
       border-radius: 30px;
   }
 
+  table {
+    color: white;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 90px;
+  }
+
+  button{
+    margin-right: 10px;
+  }
+
+  .btn-danger{
+    background-color: rgb(223, 0, 0);
+  }
+
+  .btn-danger:hover {
+    background-color: rgb(185, 0, 0);
+  }
+
+  .delete{
+    margin-bottom: 40px;
+  }
+
+  .btn-info{
+    background-color: #17a2b8;
+  }
+
   .fa-arrow-circle-left{
     margin-bottom: 5px;
     color: orange;
     font-size:25px;
+    text-align: left;
   }
 
   .fa-arrow-circle-left::before{
       cursor: pointer;
   }
+
+
+

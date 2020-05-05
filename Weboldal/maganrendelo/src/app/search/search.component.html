@@ -1,10 +1,20 @@
-<div id="search-component">
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-    <ul class="search-result">
-        <li *ngFor="let surgery of surgeries$ | async">
-            <a routerLink="/detail/{{surgery.id}}">
-                {{surgery.name}}
+<div class="container">
+    <div class="row h-100">
+        <div class="btn-div">
+            <button class="btn btn-secundary createSurgery-btn" title="Új magánrendelő hozzáadása" 
+            routerLink="/admin/surgeries/create">+</button>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let surgery of searched" class="card my-5 mx-4 text-white bg-dark" style="width: 20rem;">
+            <a routerLink="/detail/{{surgery.id}}" style="color: white;">
+                <img src="./assets/szent-margit-rendelointezet.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{surgery.name}}</h5>
+                    <p class="card-text">{{surgery.address}}</p>
+                    <p class="card-text"> {{surgery.opening}}</p>
+                </div>
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>

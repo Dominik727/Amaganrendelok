@@ -9,6 +9,8 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  searchText: string;
+
   ngOnInit(): void {
   }
 

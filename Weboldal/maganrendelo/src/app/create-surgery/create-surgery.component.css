@@ -57,6 +57,7 @@
   .card{
       width: 600px;
       margin-top: 50px;
+      border-radius: 30px;
   }
 
   .fa-arrow-circle-left{
@@ -68,3 +69,9 @@
   .fa-arrow-circle-left::before{
       cursor: pointer;
   }
+
+  h5{
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
