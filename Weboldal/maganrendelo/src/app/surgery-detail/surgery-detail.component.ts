@@ -5,6 +5,7 @@ import { Surgery } from '../model/surgery';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-surgery-detail',
@@ -18,11 +19,19 @@ export class SurgeryDetailComponent implements OnInit {
   closeResult: string;
   modal: any;
 
+  model: NgbDateStruct;
+  date: {year: number, month: number};
+  time = {hour: 13, minute: 30};
+  minuteStep = 30;
+
+  
+
   constructor(private route: ActivatedRoute,
     private surgeryService: SurgeryService,
     private location: Location,
     private sanitizer: DomSanitizer,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    private calendar: NgbCalendar) { }
 
   ngOnInit(): void {
     this.getSurgery();
@@ -64,5 +73,11 @@ export class SurgeryDetailComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
+
+  selectToday() {
+    this.model = this.calendar.getToday();
+  }
+
+  
 
 }

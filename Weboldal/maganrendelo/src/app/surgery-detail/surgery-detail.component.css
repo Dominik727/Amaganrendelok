@@ -7,7 +7,6 @@
   button {
     margin-top: 20px;
     font-family: Arial;
-    background-color: rgb(146, 146, 146);
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
@@ -85,4 +84,8 @@
 
   .card{
     border-radius: 30px;
+  }
+
+  .md-form{
+    margin-left: 20px;
   }
