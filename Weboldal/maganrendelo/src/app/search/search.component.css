@@ -1,38 +1,26 @@
-.search-result li {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width: 195px;
-    height: 16px;
-    padding: 5px;
-    background-color: white;
-    cursor: pointer;
-    list-style-type: none;
-  }
-  
-  .search-result li:hover {
-    background-color: #607D8B;
-  }
-  
-  .search-result li a {
-    color: #888;
-    display: block;
-    text-decoration: none;
-  }
-  
-  .search-result li a:hover {
-    color: white;
-  }
-  .search-result li a:active {
-    color: white;
-  }
-  #search-box {
-    width: 200px;
-    height: 20px;
-  }
-  
-  
-  ul.search-result {
-    margin-top: 0;
-    padding-left: 0;
-  }
+.createSurgery-btn{
+  background-color:rgb(53, 58, 64);
+  color: white;
+  margin-top: 40px;
+  border-radius: 15px;
+  border-color: rgb(53, 58, 64);
+  border-width: 2px;
+  font-family: Arial;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 20px;
+  line-height: 0.8;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+

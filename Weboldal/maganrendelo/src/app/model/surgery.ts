@@ -5,7 +5,8 @@ export class Surgery {
     opening: string;
     email: string;
     tel: string;
-    info: string;
+    info?: string;
     map: string;
+    img: any;
     doctrors: [];
 }
