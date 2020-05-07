@@ -3,18 +3,34 @@
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
   }
+
+  h5{
+      text-align: center;
+      margin: auto;
+      padding: 10px;
+  }
+
+  label{
+      margin-left: 70px;
+  }
+
   button {
     margin-top: 20px;
     font-family: Arial;
+    background-color: orange;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
+    margin-left: 70px;
   }
   button:hover {
-    background-color: rgb(114, 114, 114);
+    background-color: green;
   }
   button:disabled {
     background-color: #eee;
@@ -33,7 +49,7 @@
   .center {
     margin: auto;
     padding: 10px;
-    text-align: center;
+    text-align: left;
   }
 
   button{
@@ -43,49 +59,15 @@
   .card{
       width: 600px;
       margin-top: 50px;
-  }
-
-  table {
-    color: white;
-    text-align: left;
-    margin-top: 30px;
-  }
-
-  button{
-    margin-right: 10px;
-  }
-
-  .btn-danger{
-    background-color: rgb(223, 0, 0);
-  }
-
-  .btn-danger:hover {
-    background-color: rgb(185, 0, 0);
-  }
-
-  .delete{
-    margin-bottom: 40px;
-  }
-
-  .btn-info{
-    background-color: #17a2b8;
+      border-radius: 30px;
   }
 
   .fa-arrow-circle-left{
     margin-bottom: 5px;
     color: orange;
     font-size:25px;
-    text-align: left;
   }
 
   .fa-arrow-circle-left::before{
       cursor: pointer;
-  }
-
-  .card{
-    border-radius: 30px;
-  }
-
-  .md-form{
-    margin-left: 20px;
   }

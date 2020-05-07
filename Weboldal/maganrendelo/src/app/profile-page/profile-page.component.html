@@ -1,0 +1,60 @@
+<div class="card mb-3 center text-white bg-dark">
+    <i class="fa fa-arrow-circle-left" (click)="goBack()"></i>
+    <div class="border center"><img class="image" src="./assets/profilePlaceholder.svg" alt="..."></div>
+    <div class="card-body">
+      <h5 class="card-title">{{patient.lastname | uppercase}} {{patient.firstname | uppercase}}</h5>
+  
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th>ID:</th>
+            <td>{{patient.id}}</td>
+          </tr>
+          <tr>
+            <th>TAJ:</th>
+            <td>{{patient.taj}}</td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td>{{patient.email}}</td>
+          </tr>
+          <tr>
+            <th>Vezetéknév:</th>
+            <td>{{patient.lastname}}</td>
+          </tr>
+          <tr>
+            <th>Keresztnév:</th>
+            <td>{{patient.firstname}}</td>
+          </tr>
+          <tr>
+            <th>Tel.:</th>
+            <td>{{patient.tel}}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+  
+    </div>
+    <button class="btn btn-info" routerLink="/patient/{{patient.id}}/edit">Módosít</button>
+    <button class="delete btn btn-danger" title="delete surgery" (click)="open(mymodal)">Töröl</button>
+  </div>
+  
+  
+  
+  
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profil törlése</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Biztos benne, hogy törölni szeretné fiókját?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Mégse</button>
+      <button type="button" class="btn btn-danger" (click)="delete(patient)"
+        (click)="modal.close('Close click')">Törlés</button>
+    </div>
+  </ng-template>

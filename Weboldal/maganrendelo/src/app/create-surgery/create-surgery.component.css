@@ -57,4 +57,21 @@
   .card{
       width: 600px;
       margin-top: 50px;
+      border-radius: 30px;
   }
+
+  .fa-arrow-circle-left{
+    margin-bottom: 5px;
+    color: orange;
+    font-size:25px;
+  }
+
+  .fa-arrow-circle-left::before{
+      cursor: pointer;
+  }
+
+  h5{
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}

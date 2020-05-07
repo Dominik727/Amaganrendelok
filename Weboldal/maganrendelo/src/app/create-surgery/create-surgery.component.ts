@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Surgery } from '../model/surgery';
 import { SurgeryService } from '../service/surgery.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-surgery',
@@ -11,12 +12,15 @@ import { SurgeryService } from '../service/surgery.service';
 export class CreateSurgeryComponent implements OnInit {
 
   surgery: Surgery;
+  url: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private surgeryService: SurgeryService) {
+  constructor(private route: ActivatedRoute, private router: Router,
+    private surgeryService: SurgeryService, private location: Location) {
     this.surgery = new Surgery();
   }
 
   ngOnInit(): void {
+    this.url = "./assets/placeholder.webp";
   }
 
   onSubmit() {
@@ -25,6 +29,24 @@ export class CreateSurgeryComponent implements OnInit {
 
   gotoHome() {
     this.router.navigate(['/home']);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  
+  onSelectFile(event) {
+    console.log(event);
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
   }
 
 }
