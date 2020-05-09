@@ -18,4 +18,6 @@
     <string name="thumbnail">Surgery main picture</string>
     <string name="toolbar_registration">Magánrendelők</string>
     <string name="login_name">Bejelentkezés</string>
+    <string name="navigation_drawer_open">menü megnyitása</string>
+    <string name="navigation_drawer_close">menü bezárása</string>
 </resources>

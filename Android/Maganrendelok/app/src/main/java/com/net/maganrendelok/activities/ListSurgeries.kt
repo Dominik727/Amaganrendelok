@@ -1,26 +1,29 @@
 package com.net.maganrendelok.activities
 
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ListView
+import com.net.maganrendelok.R
+import com.net.maganrendelok.api.SURGERYAPI
+import com.net.maganrendelok.data.SurgeryAdapter
+import com.net.maganrendelok.models.Surgery
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.net.maganrendelok.api.SURGERYAPI
-import com.net.maganrendelok.models.Surgery
-import com.net.maganrendelok.R
-import com.net.maganrendelok.data.SurgeryAdapter
 
-class ListSurgeries : AppCompatActivity() {
 
-    private lateinit var listView : ListView
+class ListSurgeries : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listsurgeries)
+    private lateinit var listView: ListView
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var rootView: View = inflater.inflate(R.layout.activity_listsurgeries, container, false)
 
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://maganrendelo.herokuapp.com/")
@@ -31,7 +34,7 @@ class ListSurgeries : AppCompatActivity() {
 
         val registercall = currencAPI.GetSurgeries()
 
-        registercall.enqueue(object : Callback<Array<Surgery>>{
+        registercall.enqueue(object : Callback<Array<Surgery>> {
             override fun onFailure(call: Call<Array<Surgery>>, t: Throwable) {
                 TODO("Not yet implemented")
             }
@@ -43,7 +46,7 @@ class ListSurgeries : AppCompatActivity() {
                     for (item in response.body()!!) {
                         surgeryList.add(item)
                     }
-                    listView = findViewById<ListView>(R.id.surgery_list_view)
+                    listView = (rootView.findViewById(R.id.surgery_list_view) as ListView)!!
                     val surgerylist = surgeryList.toMutableList()
 
                     val listItems = ArrayList<Surgery>()
@@ -51,10 +54,10 @@ class ListSurgeries : AppCompatActivity() {
                     for (i in 0 until surgerylist.size) {
                         listItems.add(surgerylist[i])
                     }
-                    val adapter = SurgeryAdapter(this@ListSurgeries, listItems)
+                    val adapter = SurgeryAdapter(this@ListSurgeries.context!!, listItems)
                     listView.adapter = adapter
 
-                    val context : Context = this@ListSurgeries
+                    val context: Context = this@ListSurgeries.context!!
                     listView.setOnItemClickListener { _, _, position, _ ->
                         // 1
                         val selectedSurgery = surgerylist[position]
@@ -66,17 +69,8 @@ class ListSurgeries : AppCompatActivity() {
                         startActivity(detailIntent)
                     }
                 }
-
-
             }
-
-
-
-
         })
-
-
+        return rootView;
     }
-
-
 }

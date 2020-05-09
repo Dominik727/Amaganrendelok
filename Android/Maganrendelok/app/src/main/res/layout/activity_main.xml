@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBackground"
-    tools:context=".activities.MainActivity"
-    tools:menu="@menu/main">
+    tools:context=".activities.MainActivity">
 
     <Button
         android:id="@+id/buttonSignUp"
@@ -31,12 +30,6 @@
         android:background="@color/colorFormBackground"
         android:orientation="vertical"
         android:padding="10dp">
-
-        <CheckBox
-            android:id="@+id/editcheckBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/PrivacyPolicy" />
 
         <EditText
             android:id="@+id/editFirstname"
@@ -121,6 +114,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+        <CheckBox
+            android:id="@+id/editcheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/PrivacyPolicy" />
 
 
     </LinearLayout>

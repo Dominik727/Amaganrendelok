@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.net.maganrendelok.activities.SurgeryDetail"></activity>
-        <activity android:name="com.net.maganrendelok.activities.MainActivity">
+        <activity android:name=".activities.Logged_screen"></activity>
+        <activity android:name=".activities.SurgeryDetail" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.net.maganrendelok.activities.LoginActivity" />
-        <activity android:name="com.net.maganrendelok.activities.ListSurgeries" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ListSurgeries" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
