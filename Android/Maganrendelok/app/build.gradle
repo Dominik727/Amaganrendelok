@@ -10,8 +10,8 @@ android {
         applicationId "com.net.maganrendelok"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 5
-        versionName "0.16"
+        versionCode 6
+        versionName "0.17"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

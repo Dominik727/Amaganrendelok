@@ -8,28 +8,37 @@
     android:background="@color/colorPrimaryBackground"
     tools:context=".activities.MainActivity">
 
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/registration"
-        android:textAllCaps="false"
-        android:textColor="@color/colorFormBackground" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/linear_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/linearLayout"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/colorFormBackground"
         android:orientation="vertical"
         android:padding="10dp">
+
+        <TextView
+            android:id="@+id/registration_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="@string/registration_text"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorAccent" />
 
         <EditText
             android:id="@+id/editFirstname"
@@ -132,16 +141,6 @@
         android:layout_centerVertical="true"
         android:visibility="invisible"></ProgressBar>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:text="@string/registration_text"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorFormBackground" />
-
 
     <TextView
         android:id="@+id/textViewLogin"
@@ -156,6 +155,18 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorFormBackground" />
 
+            <Button
+                android:id="@+id/buttonSignUp"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLogin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="@string/registration"
+                android:textAllCaps="false"
+                android:textColor="@color/colorFormBackground" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_registration"
         android:layout_width="match_parent"
@@ -165,6 +176,8 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="@string/toolbar_registration" />
+        </RelativeLayout>
 
+    </ScrollView>
 
 </RelativeLayout>
