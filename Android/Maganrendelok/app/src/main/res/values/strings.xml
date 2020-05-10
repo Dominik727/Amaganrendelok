@@ -20,4 +20,10 @@
     <string name="login_name">Bejelentkezés</string>
     <string name="navigation_drawer_open">menü megnyitása</string>
     <string name="navigation_drawer_close">menü bezárása</string>
+    <string name="version">Verzió:</string>
+    <string name="versionName">Verzió neve:</string>
+    <string name="surgeryes_nav">Rendelők</string>
+    <string name="prfile_nav">Profil</string>
+    <string name="about_nav">Rólunk</string>
+    <string name="sign_out_nav">Kijelentkezés</string>
 </resources>

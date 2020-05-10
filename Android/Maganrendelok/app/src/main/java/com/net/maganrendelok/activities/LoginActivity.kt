@@ -54,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            editTextEmail.text = null
+            editTextPassword.text = null
 
             startActivity(Intent(this@LoginActivity, Logged_screen::class.java))
 

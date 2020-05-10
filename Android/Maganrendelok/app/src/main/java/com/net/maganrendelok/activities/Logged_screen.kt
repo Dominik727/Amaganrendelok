@@ -1,5 +1,6 @@
 package com.net.maganrendelok.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -7,9 +8,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.widget.Toast
 import com.net.maganrendelok.R
-import com.net.maganrendelok.models.Patient
 
 
 class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -34,7 +33,7 @@ class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         drawer.addDrawerListener(toogle)
         toogle.syncState()
 
-
+        supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout, ListSurgeries()).commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -45,6 +44,10 @@ class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                     fragment_profile()).commit()
             R.id.nav_about -> supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout,
                     fragment_about()).commit()
+            R.id.nav_sign_out -> startActivity(Intent(this, LoginActivity::class.java))
+
+
+
         }
 
         drawer.closeDrawer(GravityCompat.START)
@@ -56,7 +59,10 @@ class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            val a = Intent(Intent.ACTION_MAIN)
+            a.addCategory(Intent.CATEGORY_HOME)
+            a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(a)
         }
     }
 }

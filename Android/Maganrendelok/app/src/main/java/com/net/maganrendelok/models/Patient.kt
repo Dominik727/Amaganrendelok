@@ -9,5 +9,3 @@ data class Patient (
         var taj: String,
         var pass: String) {
 }
-
-var patient : Patient = Patient(0, "test", "test", "test", "test", "test", "test")

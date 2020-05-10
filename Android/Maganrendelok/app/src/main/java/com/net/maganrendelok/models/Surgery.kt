@@ -9,5 +9,5 @@ data class Surgery (
         var tel: String,
         var info: String,
         var map: String,
-        var doctrors: List<String>
+        var doctrors: ArrayList<Doctor>
 )

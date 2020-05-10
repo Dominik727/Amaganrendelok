@@ -6,16 +6,24 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_surgeryes"
             android:icon="@drawable/ic_surgeryes"
-            android:title="Rendelők">
+            android:title="@string/surgeryes_nav">
         </item>
         <item android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
-            android:title="Profil">
+            android:title="@string/prfile_nav">
         </item>
         <item android:id="@+id/nav_about"
             android:icon="@drawable/ic_info"
-            android:title="Rólunk">
+            android:title="@string/about_nav">
         </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_sign_out"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/sign_out_nav">
+        </item>
+
     </group>
 
 </menu>

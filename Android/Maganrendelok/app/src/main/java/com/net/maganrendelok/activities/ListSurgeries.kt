@@ -47,23 +47,23 @@ class ListSurgeries : Fragment() {
                         surgeryList.add(item)
                     }
                     listView = (rootView.findViewById(R.id.surgery_list_view) as ListView)!!
-                    val surgerylist = surgeryList.toMutableList()
+                    var surgerylist = surgeryList.toMutableList()
 
-                    val listItems = ArrayList<Surgery>()
-// 3
+                    var listItems = ArrayList<Surgery>()
+
                     for (i in 0 until surgerylist.size) {
                         listItems.add(surgerylist[i])
                     }
-                    val adapter = SurgeryAdapter(this@ListSurgeries.context!!, listItems)
+                    var adapter = SurgeryAdapter(this@ListSurgeries.context!!, listItems)
                     listView.adapter = adapter
 
-                    val context: Context = this@ListSurgeries.context!!
+                    var context: Context = this@ListSurgeries.context!!
                     listView.setOnItemClickListener { _, _, position, _ ->
                         // 1
-                        val selectedSurgery = surgerylist[position]
+                        var selectedSurgery = surgerylist[position]
 
                         // 2
-                        val detailIntent = SurgeryDetail.newIntent(context, selectedSurgery)
+                        var detailIntent = SurgeryDetail.newIntent(context, selectedSurgery)
 
                         // 3
                         startActivity(detailIntent)
