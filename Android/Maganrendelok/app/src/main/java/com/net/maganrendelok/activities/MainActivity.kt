@@ -10,8 +10,10 @@ import android.view.View
 import android.widget.*
 import com.net.maganrendelok.R
 import com.net.maganrendelok.api.REGISTERAPI
+import com.net.maganrendelok.api.SURGERYAPI
 import com.net.maganrendelok.data.PasswordStrength
 import com.net.maganrendelok.models.PatientDto
+import com.net.maganrendelok.models.Surgery
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,6 +25,29 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity(), TextWatcher {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        try {
+            val retrofit = Retrofit.Builder()
+                    .baseUrl("https://maganrendelo.herokuapp.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+
+            val currencAPI = retrofit.create(SURGERYAPI::class.java)
+
+            val registercall = currencAPI.GetSurgeries()
+
+            registercall.enqueue(object : Callback<Array<Surgery>> {
+                override fun onFailure(call: Call<Array<Surgery>>, t: Throwable) {
+                    Thread.sleep(2000)
+                    registercall.clone().enqueue(this)
+                }
+
+                override fun onResponse(call: Call<Array<Surgery>>, response: Response<Array<Surgery>>) {
+                }
+            })
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+        setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -168,9 +193,6 @@ class MainActivity : AppCompatActivity(), TextWatcher {
                     }
 
                 })
-            
-
-
         }
     }
 

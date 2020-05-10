@@ -10,11 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.Logged_screen"></activity>
+        <activity android:name=".activities.fragment_about"></activity>
+        <activity android:name=".activities.fragment_profile" />
+        <activity android:name=".activities.Logged_screen" />
         <activity android:name=".activities.SurgeryDetail" />
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -7,4 +7,7 @@ data class Patient (
         var email: String,
         var tel: String,
         var taj: String,
-        var pass: String)
+        var pass: String) {
+}
+
+var patient : Patient = Patient(0, "test", "test", "test", "test", "test", "test")

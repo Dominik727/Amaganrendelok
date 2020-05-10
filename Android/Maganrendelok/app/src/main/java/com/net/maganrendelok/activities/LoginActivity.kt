@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+
             startActivity(Intent(this@LoginActivity, Logged_screen::class.java))
 
             /*val user = PatientLogin(email, password)

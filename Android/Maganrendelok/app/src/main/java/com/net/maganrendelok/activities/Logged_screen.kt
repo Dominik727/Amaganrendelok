@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
 import com.net.maganrendelok.R
+import com.net.maganrendelok.models.Patient
 
 
 class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +41,10 @@ class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         when (item.itemId) {
             R.id.nav_surgeryes -> supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout,
                     ListSurgeries()).commit()
+            R.id.nav_profile -> supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout,
+                    fragment_profile()).commit()
+            R.id.nav_about -> supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout,
+                    fragment_about()).commit()
         }
 
         drawer.closeDrawer(GravityCompat.START)
