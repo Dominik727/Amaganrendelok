@@ -12,6 +12,7 @@ import com.net.maganrendelok.R
 import com.net.maganrendelok.api.REGISTERAPI
 import com.net.maganrendelok.api.SURGERYAPI
 import com.net.maganrendelok.data.PasswordStrength
+import com.net.maganrendelok.models.Patient
 import com.net.maganrendelok.models.PatientDto
 import com.net.maganrendelok.models.Surgery
 import kotlinx.android.synthetic.main.activity_main.*
@@ -158,33 +159,35 @@ class MainActivity : AppCompatActivity(), TextWatcher {
             waiting.visibility = View.VISIBLE
             disableAllEditText(false)
 
-            val user = PatientDto(
-                    editLastname.text.toString(),
+            val user = Patient(
                     editFirstname.text.toString(),
+                    editLastname.text.toString(),
                     editTextEmail.text.toString(),
                     editTextTel.text.toString(),
-                    editTextTaj.text.toString(),
-                    editTextPassword.text.toString()
+                    editTextPassword.text.toString(),
+                    "PATIENT",
+                    editTextTaj.text.toString()
             )
 
             var attempt = 0
 
             val registercall = currencAPI.PostRegistration(user)
 
-                registercall.enqueue(object : Callback<PatientDto>{
+                registercall.enqueue(object : Callback<Void>{
 
-                    override fun onFailure(call: Call<PatientDto>, t: Throwable) {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
                         if (attempt > 3) {
                             Thread.sleep(1_000)
                             Toast.makeText(applicationContext, "Hiba történt, próbája újra!", Toast.LENGTH_SHORT).show()
-                            disableAllEditText(true)
                             waiting.visibility = View.INVISIBLE
+                            disableAllEditText(true)
+                            return
                         }
                         attempt += 1
                         registercall.clone().enqueue(this)
                     }
 
-                    override fun onResponse(call: Call<PatientDto>, response: Response<PatientDto>) {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
                         Thread.sleep(1_000)
                         Toast.makeText(applicationContext, "A fiók regisztráció sikeres volt", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
