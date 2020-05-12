@@ -1,0 +1,10 @@
+.list-group-item-text{
+    text-align: left;
+    color: rgb(53, 58, 64);
+    text-shadow: black;
+}
+
+.list-group-item-heading{
+    background-color: rgb(53, 58, 64);
+    color: white;
+}

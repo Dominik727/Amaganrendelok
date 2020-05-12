@@ -1,4 +1,7 @@
-<div class="card my-5" style="background-color:rgb(53, 58, 64);">
+<div class="card my-4" style="background-color:rgb(53, 58, 64);">
+  <div class="card-header">
+    <h2 style="color: honeydew;">Regisztráció</h2>
+  </div>
     <div class="card-body">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" #patientForm="ngForm">
         <div class="form-group">
@@ -40,7 +43,7 @@
               placeholder="Email">
               <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
                 <div *ngIf="form.get('email').errors.required">Az email kitöltése kötelező</div>
-                <div *ngIf="form.get('email').errors.email">Hibás email cím</div>
+                <div *ngIf="form.get('email').errors.pattern">Hibás email cím</div>
               </div>
         </div>
         <div class="form-group">
@@ -77,7 +80,7 @@
         </div>
         <div class="form-group">
           <label style="color: honeydew;" for="pass">Jelszó</label>
-          <input type="text" [(ngModel)]="patient.pass" 
+          <input type="text" [(ngModel)]="patient.password" 
             [ngClass]="{'is-invalid': form.get('pass').touched && form.get('pass').invalid}"
             formControlName="pass"
             class="form-control"

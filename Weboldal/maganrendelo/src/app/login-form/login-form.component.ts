@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from '../service/patient.service';
-import { Patient } from '../model/patient';
+import { LoginAttributes } from '../model/LoginAttributes';
 
 @Component({
   selector: 'app-login-form',
@@ -10,20 +10,18 @@ import { Patient } from '../model/patient';
 })
 export class LoginFormComponent implements OnInit {
 
-  
-
-  patient: Patient;
+  logattr: LoginAttributes;
 
   constructor(private route: ActivatedRoute, private router: Router, private patientService: PatientService) {
-    this.patient = new Patient();
+    this.logattr = new LoginAttributes;
   }
 
-  onSubmit() {
-    this.patientService.save(this.patient).subscribe(result => this.gotoUserList());
+  onSubmit() {    
+    this.patientService.CheckMatch(this.logattr).subscribe(result => this.gotoUserList());
   }
 
   gotoUserList() {
-    this.router.navigate(['/patients']);
+    this.router.navigate(['/home']);
   }
   ngOnInit(): void {
   }

@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Doctor } from '../model/doctor';
+import { MyComment } from '../model/Comment';
 
 @Component({
   selector: 'app-surgery-detail',
@@ -14,10 +16,14 @@ import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 })
 export class SurgeryDetailComponent implements OnInit {
 
+  // Ezt kitörölni és helyette a surgery.doctors listát használni, és a getSurgery osztályból is törölni a statikus részt
+  doctors: Doctor[];
   
   @Input() surgery: Surgery;
   closeResult: string;
   modal: any;
+  comments: any[];
+  comment: MyComment = new MyComment;
 
   model: NgbDateStruct;
   date: {year: number, month: number};
@@ -41,6 +47,24 @@ export class SurgeryDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.surgeryService.getSurgery(id)
       .subscribe(surgery => this.surgery = surgery);
+
+    this.surgeryService.getComments(id)
+      .subscribe(comments => this.comments = comments);
+
+      
+      this.doctors = new Array<Doctor>();
+      let d = new Doctor();
+      d.lastname = "test";
+      d.firstname = "elek";
+      d.category = "testeset";
+
+      let d2 = new Doctor();
+      d2.lastname = "test2";
+      d2.firstname = "elek2";
+      d2.category = "testeset2";
+
+      this.doctors.push(d);
+      this.doctors[1] = d2;
   }
 
   goBack(): void {
@@ -76,6 +100,12 @@ export class SurgeryDetailComponent implements OnInit {
 
   selectToday() {
     this.model = this.calendar.getToday();
+  }
+
+  postComment(){
+    this.comment.author = 'Ambrus';
+    this.surgeryService.postComment(parseInt(this.surgery.id), this.comment).subscribe(() => location.reload());
+
   }
 
   

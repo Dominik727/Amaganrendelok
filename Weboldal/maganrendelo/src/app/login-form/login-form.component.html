@@ -1,19 +1,23 @@
 <div class="container">
   <div class="row h-100">
     <div class="card my-5" style="background-color:rgb(53, 58, 64);">
+      <div class="card-header">
+        <h2 style="color: honeydew;">Bejelentkezés</h2>
+      </div>
       <div class="card-body">
         <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
           <div class="form-group">
             <label style="color: honeydew;" for="email">Email</label>
-            <input type="text" [(ngModel)]="patient.email" class="form-control" id="email" name="email"
+            <input type="text" [(ngModel)]="logattr.email" class="form-control" id="email" name="email"
               placeholder="Email" required #email="ngModel">
           </div>
           <div class="form-group">
             <label style="color: honeydew;" for="pass">Jelszó</label>
-            <input type="text" [(ngModel)]="patient.pass" class="form-control" id="pass" name="pass" type="password"
+            <input type="text" [(ngModel)]="logattr.pass" class="form-control" id="pass" name="pass" type="password"
               placeholder="Jelszó" required #email="ngModel">
           </div>
           <button type="submit" [disabled]="!patientForm.form.valid" class="btn btn-info">Belépés</button>
+          <a routerLink="/doctor/login" style="display: block; color: blue; cursor: pointer; margin-top: 10px;">Bejelentkezés orvosként</a>
         </form>
       </div>
     </div>

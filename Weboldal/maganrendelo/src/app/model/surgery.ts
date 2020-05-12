@@ -1,3 +1,5 @@
+import { Doctor } from './doctor';
+
 export class Surgery {
     id: string;
     name: string;
@@ -8,5 +10,5 @@ export class Surgery {
     info?: string;
     map: string;
     img: any;
-    doctrors: [];
+    doctrors: Doctor[];
 }
