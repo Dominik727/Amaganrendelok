@@ -45,7 +45,7 @@
             <div class="panel-body">              
               <form class="form-inline" (ngSubmit)="postComment()" #commentForm="ngForm">
                 <textarea [(ngModel)]="comment.content" placeholder="Írja ide a kommentjét!" class="pb-cmnt-textarea" name="text" type="text" ></textarea>
-                    <button class="btn btn-primary pull-right" routerLink="/admin/surgeries/{{surgery.id}}" type="submit">Küldés</button>
+                    <button class="btn btn-primary pull-right" type="submit">Küldés</button>
                 </form>
             </div>
         </div>
