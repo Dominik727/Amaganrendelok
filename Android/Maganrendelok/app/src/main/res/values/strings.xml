@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AMaganrendelok</string>
+    <string name="app_name">A Magánrendelők</string>
     <string name="registration">Regisztrálok</string>
     <string name="haveAccount">Már van fiókod?\nKattints ide a bejelentkezéshez</string>
     <string name="password">jelszó</string>
