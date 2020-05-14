@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from '../model/patient';
 import { Observable, of } from 'rxjs';
-import { PatientDto } from '../model/patientdto';
 import { catchError, map, tap } from 'rxjs/operators';
+import { LoginAttributes } from '../model/LoginAttributes';
 
 @Injectable()
 export class PatientService {
@@ -37,8 +37,8 @@ export class PatientService {
     return this.http.get<Patient[]>(this.doctorPatientsUrl)
   }
 
-  public newPatient(patient: PatientDto) {
-    return this.http.post<PatientDto>(this.regUrl, patient);
+  public newPatient(patient: Patient) {
+    return this.http.post<Patient>(this.regUrl, patient);
   }
 
   getPatient(id: number): Observable<Patient> {
@@ -62,6 +62,11 @@ export class PatientService {
     return this.http.delete<Patient>(url, this.httpOptions).pipe(
       catchError(this.handleError<Patient>('deleteSurgery'))
     );
+  }
+
+  public CheckMatch(loginAttr: LoginAttributes){
+    const url = `${this.basicUrl}/patientlogin`;
+    return this.http.post<Patient>(url, loginAttr);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

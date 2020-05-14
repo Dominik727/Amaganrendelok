@@ -43,6 +43,7 @@
   .card{
       width: 600px;
       margin-top: 50px;
+      min-width: 600px;
   }
 
   table {
@@ -89,3 +90,34 @@
   .md-form{
     margin-left: 20px;
   }
+
+  .pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    height: 130px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
+}
+
+.form-inline{
+  margin-bottom: 30px;
+}
+
+.container{
+  margin-top: 30px;
+}
+
+.text-center{
+  margin-bottom: 30px;
+}
+
+.list-group-item-text{
+  text-align: left;
+  color: rgb(53, 58, 64);
+  text-shadow: black;
+}
+
+.list-group-item-heading{
+  background-color: rgb(53, 58, 64);
+  color: white;
+}

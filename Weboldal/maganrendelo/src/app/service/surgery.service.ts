@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Surgery } from '../model/surgery';
 import { catchError, map, tap } from 'rxjs/operators';
+import { MyComment } from '../model/Comment';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,20 @@ export class SurgeryService {
 
     return this.http.delete<Surgery>(url, this.httpOptions).pipe(
       catchError(this.handleError<Surgery>('deleteSurgery'))
+    );
+  }
+
+  getComments(id: number): Observable<Comment[]> {
+    const url = `${this.surgeryUrl}/${id}/comments`;
+    return this.http.get<Comment[]>(url).pipe(
+      catchError(this.handleError<Comment[]>(`getSurgeryComments id=${id}`))
+    );
+  }
+
+  postComment(id: number, comment: MyComment): Observable<any> {
+    const url = `${this.surgeryUrl}/${id}/comments`;
+    return this.http.post(url, comment, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updateSurgeryComment'))
     );
   }
 

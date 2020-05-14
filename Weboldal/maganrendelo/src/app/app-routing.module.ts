@@ -10,11 +10,13 @@ import { EditSurgeryComponent } from './edit-surgery/edit-surgery.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { SearchComponent } from './search/search.component';
+import { DoctorLoginComponent } from './doctor-login/doctor-login.component';
 
 const routes: Routes = [
   { path: 'admin/usersdata', component: PatientListComponent },
   { path: 'registration', component: PatientFormComponent },
   { path: 'login', component: LoginFormComponent },
+  { path: 'doctor/login', component: DoctorLoginComponent },
   { path: 'home', component: SurgeryListComponent },
   { path: 'detail/:id', component: SurgeryDetailComponent },
   { path: 'admin/surgeries/create', component: CreateSurgeryComponent },

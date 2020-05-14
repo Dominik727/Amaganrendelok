@@ -37,6 +37,31 @@
   <p class="card-text terkep">Térkép:</p>
   <iframe [src]="mapUrl()" width="auto" height="450" frameborder="0" style="border:0;" allowfullscreen=""
     aria-hidden="false" tabindex="0"></iframe>
+  <div class="container">
+    <h2 class="text-center">Kommentek</h2>
+    <div class="row">
+      <div class="col-md-12 col-md-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-body">              
+              <form class="form-inline" (ngSubmit)="postComment()" #commentForm="ngForm">
+                <textarea [(ngModel)]="comment.content" placeholder="Írja ide a kommentjét!" class="pb-cmnt-textarea" name="text" type="text" ></textarea>
+                    <button class="btn btn-primary pull-right" type="submit">Küldés</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12 col-md-offset-3">
+      <div class="list-group">
+        <div href="#" class="list-group-item" *ngFor="let comment of comments">
+            <h4 class="list-group-item-heading">{{comment.author}}</h4>
+            <p class="list-group-item-text">{{comment.content}}</p>
+        </div>
+    </div>
+    </div>
+  </div>
+  </div>
   <p class="card-text"><small class="text-muted">Last updated...</small></p>
 </div>
 
@@ -85,9 +110,7 @@
           <label data-error="wrong" data-success="right" for="form3">Orvos kiválasztása</label>
           <select class="custom-select form-control validate" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">Bakos Ferenc</option>
-            <option value="2">Külalak Ágnes</option>
-            <option value="3">Takony Tibor</option>
+            <option *ngFor="let doctor of doctors">{{doctor.lastname}} {{doctor.firstname}}</option>
           </select>
         </div>
 

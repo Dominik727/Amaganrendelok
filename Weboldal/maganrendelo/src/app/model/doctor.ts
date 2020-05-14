@@ -5,4 +5,5 @@ export class Doctor {
     email: string;
     tel: string;
     category: string;
+    pass: string;
 }

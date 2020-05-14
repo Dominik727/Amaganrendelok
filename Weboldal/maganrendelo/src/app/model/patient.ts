@@ -5,5 +5,6 @@ export class Patient {
     email: string;
     tel: string;
     taj: string;
-    pass: string;
+    password: string;
+    role: string;
 }

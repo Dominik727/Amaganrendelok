@@ -2,23 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Doctor } from '../model/doctor';
+import { LoginAttributes } from '../model/LoginAttributes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
  
-  private surgeriesUrl: string;
+  private doctorsUrl: string;
+  private doctorUrl: string;
  
   constructor(private http: HttpClient) {
-    this.surgeriesUrl = 'http://maganrendelo.herokuapp.com/admin/doctors';
+    this.doctorsUrl = 'http://maganrendelo.herokuapp.com/admin/doctors';
+    this.doctorUrl = 'http://maganrendelo.herokuapp.com/doctorlogin'
   }
  
   public findAll(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(this.surgeriesUrl);
+    return this.http.get<Doctor[]>(this.doctorsUrl);
   }
  
-  public save(surgery: Doctor) {
-    return this.http.post<Doctor>(this.surgeriesUrl, surgery);
+  public save(doctor: Doctor) {
+    return this.http.post<Doctor>(this.doctorsUrl, doctor);
+  }
+
+  public CheckMatch(loginAttr: LoginAttributes){
+    return this.http.post<Doctor>(this.doctorUrl, loginAttr);
   }
 }

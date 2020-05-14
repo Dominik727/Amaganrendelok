@@ -20,6 +20,8 @@ import { SearchComponent } from './search/search.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DoctorLoginComponent } from './doctor-login/doctor-login.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditSurgeryComponent,
     SearchComponent,
     ProfilePageComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    DoctorLoginComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
