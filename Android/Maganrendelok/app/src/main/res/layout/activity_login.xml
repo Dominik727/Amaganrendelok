@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBackground"
-    tools:context="simplifiedcoding.net.maganrendelo.activities.LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:layout_above="@id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Bejelentkezés"
+        android:text="@string/login_name"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorFormBackground" />
 
@@ -71,5 +71,18 @@
         android:text="Bejelentkezés"
         android:textAllCaps="false"
         android:textColor="@color/colorFormBackground" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        app:title="@string/login_name"
+        android:contentDescription="Bejelentkezés"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:collapseIcon="?attr/homeAsUpIndicator"
+        app:navigationIcon="?attr/actionModeCloseDrawable" />
 
 </RelativeLayout>

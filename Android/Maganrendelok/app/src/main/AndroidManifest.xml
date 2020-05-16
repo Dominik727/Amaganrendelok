@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="simplifiedcoding.net.kotlinretrofittutorial">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.net.maganrendelok">
 
     <application
         android:allowBackup="true"
@@ -12,15 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.MainActivity">
+        <activity android:name=".activities.fragment_about"></activity>
+        <activity android:name=".activities.fragment_profile" />
+        <activity android:name=".activities.Logged_screen" />
+        <activity android:name=".activities.SurgeryDetail" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.LoginActivity" />
-        <activity android:name="simplifiedcoding.net.maganrendelo.activities.ListSurgeries"></activity>
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ListSurgeries" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

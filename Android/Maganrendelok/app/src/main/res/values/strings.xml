@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AMaganrendelok</string>
+    <string name="app_name">A Magánrendelők</string>
     <string name="registration">Regisztrálok</string>
     <string name="haveAccount">Már van fiókod?\nKattints ide a bejelentkezéshez</string>
     <string name="password">jelszó</string>
@@ -16,4 +16,14 @@
     <string name="your_password_must_be">Kis- és nagybetűt, számot, illetve speciális karaktert kell tartalmaznia. A jelszó 6-12 karakter lehet</string>
     <string name="PrivacyPolicy">Az adatkezelési tájékoztatót elfogadom!</string>
     <string name="thumbnail">Surgery main picture</string>
+    <string name="toolbar_registration">Magánrendelők</string>
+    <string name="login_name">Bejelentkezés</string>
+    <string name="navigation_drawer_open">menü megnyitása</string>
+    <string name="navigation_drawer_close">menü bezárása</string>
+    <string name="version">Verzió:</string>
+    <string name="versionName">Verzió neve:</string>
+    <string name="surgeryes_nav">Rendelők</string>
+    <string name="prfile_nav">Profil</string>
+    <string name="about_nav">Rólunk</string>
+    <string name="sign_out_nav">Kijelentkezés</string>
 </resources>
