@@ -33,31 +33,24 @@ class SurgeryAdapter (private val context: Context,
 
     //4
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        // Get view for row item
+
         val rowView = inflater.inflate(R.layout.list_item_surgery, parent, false)
 
-        // Get title element
         val titleTextView = rowView.findViewById(R.id.recipe_list_title) as TextView
 
-// Get subtitle element
         val subtitleTextView = rowView.findViewById(R.id.recipe_list_subtitle) as TextView
 
-// Get detail element
         //val detailTextView = rowView.findViewById(R.id.recipe_list_detail) as TextView
 
-// Get thumbnail element
         val thumbnailImageView = rowView.findViewById(R.id.recipe_list_thumbnail) as ImageView
 
-        // 1
         val recipe = getItem(position) as Surgery
 
-// 2
         titleTextView.text = recipe.name
         subtitleTextView.text = recipe.address
         //detailTextView.text = recipe.info
         thumbnailImageView.setImageResource(R.drawable.ic_launcher_foreground)
 
-//
         return rowView
     }
 }

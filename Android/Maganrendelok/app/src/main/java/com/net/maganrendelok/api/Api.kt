@@ -21,3 +21,8 @@ interface SURGERYAPI {
     @GET("/admin/surgeries")
     fun GetSurgeries() : Call<Array<Surgery>>
 }
+
+interface PATIENTSYAPI {
+    @GET("admin/patients")
+    fun GetPatients() : Call<Array<Patient>>
+}

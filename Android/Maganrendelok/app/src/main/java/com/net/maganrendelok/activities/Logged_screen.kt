@@ -45,9 +45,7 @@ class Logged_screen : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_about -> supportFragmentManager.beginTransaction().replace(R.id.fragmant_layout,
                     fragment_about()).commit()
             R.id.nav_sign_out -> startActivity(Intent(this, LoginActivity::class.java))
-
-
-
+            
         }
 
         drawer.closeDrawer(GravityCompat.START)
